@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.*;
+import java.util.logging.Logger;
 
 public class Main {
 	public static Scanner input=new Scanner(System.in);
@@ -55,8 +56,116 @@ public class Main {
 		
 	}
     public static void OwnerActivities() {
+   	 Logger logger;
+
+    	boolean running = true;
+    	
+	    while (running) {
+			logger.info("\n Welcome to the Controlpanel for housing plz enter show houses!\r\n"
+			+"--------------------------------------------------"
+			+"Please select an option from the following menu:\r\n"
+			+"1.show houses\r\n"
+			+"2.add new house \r\n"
+			
+			+"3.update house \r\n"
+			
+			+" 4.delete house \r\n"
+		
+			+"5.5.show contact info \r\n"
+	
+			+"6.number of students in specific house\r\n"
+			
+			+"7. Update an existing product\r\n"
+			
+			+"8. Show house details \r\n"
+			
+			+"9. LogOut\r\n"
+			+"10. Quit\r\n"
+			+"Enter the number of the activity you want to perform:\r\n");
+			
+		int choice;
+		choice=input.nextInt();
+		
+
+		switch(choice) {
+			case 1:
+				
+				
+				
+				
+				break;
+				
+			case 2:
+			
+				break;
+				
+			case 3:
+                
+				
+				break;
+				
+			
+			case 4:
+				
+				break;
+				
+			case 5:
+				
+				break;
+				
+				
+			case 6:
+			
+				
+				break;
+                
+            	
+			case 7:
+				
+				break;
+            	
+			case 8:
+				
+				break;
+				
+            case 10:
+            	System.exit(0);
+            	break;
+
+         
+			case 9:
+				
+             
+                break;
+
+            default:
+            	
+                
+                break;
+				
+		}
+	}
+
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
 		
 	}
+    
+    
+    
+    
+    
+    
     public static void TenantActivities() {
 		
 	}

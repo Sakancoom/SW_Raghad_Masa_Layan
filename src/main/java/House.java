@@ -1,4 +1,4 @@
-
+ 
 public class House {
 	public House() {
 		super();

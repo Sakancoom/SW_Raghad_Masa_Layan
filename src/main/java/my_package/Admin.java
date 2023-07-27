@@ -1,5 +1,10 @@
-public class Tenant {
-	public Tenant() {
+package my_package;
+import java.util.ArrayList;
+
+
+
+public class Admin {
+	public Admin() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -8,7 +13,7 @@ public class Tenant {
 	protected String name;
 	protected String email;
 
-public Tenant(String id, String password, String name, String email) {
+public Admin(String id, String password, String name, String email) {
 		super();
 		this.id = id;
 		this.password = password;

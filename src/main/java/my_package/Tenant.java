@@ -1,9 +1,6 @@
-import java.util.ArrayList;
-
-
-
-public class Admin {
-	public Admin() {
+package my_package;
+public class Tenant {
+	public Tenant() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -12,7 +9,7 @@ public class Admin {
 	protected String name;
 	protected String email;
 
-public Admin(String id, String password, String name, String email) {
+public Tenant(String id, String password, String name, String email) {
 		super();
 		this.id = id;
 		this.password = password;

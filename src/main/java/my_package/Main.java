@@ -7,10 +7,13 @@ public class Main {
 	public static ArrayList <Admin>  Admins=new ArrayList<Admin> ();
 	public static ArrayList <Owner>  Owners=new ArrayList<Owner> ();
 	public static ArrayList <Tenant>  Tenants=new ArrayList<Tenant> ();
+	public static ArrayList <reservation> reservations =new ArrayList<reservation> ();
 	public static ArrayList <House>  Houses=new ArrayList<House> ();
 	public static ArrayList <request>  requests=new ArrayList<request> ();
 	public static HashMap <String,String> ads=new HashMap <String, String> ();
-	
+	public static int adFlag=0;
+	public static String namee;
+	public static String password;
 	public static void main(String [] args) {
 		 init();
 		 
@@ -57,12 +60,12 @@ public class Main {
 		
 		
 	}
-	public static void AdminActivities() {
-		int adFlag=0;
+	public static void admin_login() {
+		//int adFlag=0;
 		System.out.println("Enter your name:\r\n");
-		String namee=input.next();
+		 namee=input.next();
 		System.out.println("Enter your password:\r\n");
-		String password=input.next();
+		 password=input.next();
 		for(int i=0;i<ads.size();i++)
 		{
 			if(ads.containsValue(namee)) {
@@ -80,7 +83,35 @@ public class Main {
 				AdminActivities();
 			}
 		}
-		if(adFlag==1) {//what the admin can do
+		if(adFlag==1) {
+			AdminActivities();
+		}
+		
+	}
+	public static void AdminActivities() {
+//		int adFlag=0;
+//		System.out.println("Enter your name:\r\n");
+//		String namee=input.next();
+//		System.out.println("Enter your password:\r\n");
+//		String password=input.next();
+//		for(int i=0;i<ads.size();i++)
+//		{
+//			if(ads.containsValue(namee)) {
+//				if(ads.get(namee).equalsIgnoreCase(password)) {
+//					adFlag=1;
+//					break;
+//				}
+//				else {
+//					System.out.println("The password is Incorrect,please try again");
+//					AdminActivities();
+//				}
+//			}
+//			else {
+//				System.out.println("The user name is INVALID as an admin, please try again");
+//				AdminActivities();
+//			}
+//		}
+		
 			System.out.println("Welcome"+namee+".\r\n What do you want?\r\n ");
 			System.out.println("1-Show the list of houses owners.\r\n"
 					+ "2-Show the list of the application users.\\r\\n"
@@ -139,12 +170,60 @@ public class Main {
 			}
 			break;
 			case 5:
-				
-			
+			{
+				System.out.println("What do yoy want to do?\n\r 1-delete a house \n\r 2-add a house");
+				House h2=new House();
+				int op=input.nextInt();
+				if(op==1) {
+					System.out.println("choose the id of the house you want to delete\r\n");
+					for(int i=0;i<Houses.size();i++) {
+						
+						System.out.println((i+1)+" ID: "+ Houses.get(i).id+"\t"+" Location: "+ Houses.get(i).Location+"\t"+" Details: "+ Houses.get(i).Details+"\t"+" Room number: "+ Houses.get(i).rooms_num+"\t"+" Student number: "+ Houses.get(i).student_num+"\t"+" Price: "+ Houses.get(i).Price+"\t"+" Owner name: "+ Houses.get(i).owner_name+"\t"+"\n\r");
+					}
+					String ch=input.next();
+					boolean x=h2.delete_house(ch);
+				}
+				if(op==2) {
+					System.out.println("Please, fill the information of the house you want to add\n\r");
+					System.out.println("\n\r ID:");
+					String idd=input.next();
+					System.out.println("\n\r Location:");
+					String location=input.next();
+					System.out.println("\n\r Details:");
+					String details=input.next();
+					System.out.println("\n\r Number of rooms:");
+					int rooms=input.nextInt();
+					System.out.println("\n\r Number of students:");
+					int students=input.nextInt();
+					System.out.println("\n\r Price:");
+					String price=input.next();
+					System.out.println("\n\r Owner name:");
+					String Owner=input.next();
+					h2.add_house(idd, location, rooms, students, details, price, Owner);
+				}
 			
 			}
+			break;
+			case 6:
+			{
+				report.generate_report();
+				
+			}
+			break;
+			case 7:
+			{
+				
+			}
+			break;
+			case 8:
+			{
+				start();
+			}
+			break;
+			default:AdminActivities();
+			}
 			
-		}
+		
 	
 	}
     public static void OwnerActivities() {

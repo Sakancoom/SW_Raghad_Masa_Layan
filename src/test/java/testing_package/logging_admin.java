@@ -12,11 +12,14 @@ public class logging_admin {
 	Logging g;
 	Admin ad;
 	public String pass;
+	
 	public logging_admin() {
 		g=new Logging();
 		//pass="123456";
-		g.password=pass;
-		ad=new Admin(id,name,"123456",email);
+		id="5";
+		email="raghadmatar2002@gmail.com";
+		g.password="pass1234";
+		ad=new Admin(id,name,"pass1234",email);
 		Main.Admins.add(ad);
 		
 	}
@@ -46,7 +49,8 @@ public class logging_admin {
 	@Then("the admin is logged in")
 	public void theAdminIsLoggedIn() {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    //throw new io.cucumber.java.PendingException();
+		assertTrue(g.getLogState());
 	}
 
 	@Then("the login operation fails")
@@ -59,19 +63,22 @@ public class logging_admin {
 	@Then("the admin is not logged in")
 	public void theAdminIsNotLoggedIn() {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    //throw new io.cucumber.java.PendingException();
+		g.logState(false);
 	}
 
 	@Given("that the admin  name {string} is logged in")
 	public void thatTheAdminNameIsLoggedIn(String string) {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    //throw new io.cucumber.java.PendingException();
+		name=string;
 	}
 
 	@When("the admin logs out")
 	public void theAdminLogsOut() {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    //throw new io.cucumber.java.PendingException();
+		g.logout();
 	}
 }
 

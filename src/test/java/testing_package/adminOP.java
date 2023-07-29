@@ -4,6 +4,7 @@ import io.cucumber.java.en.*;
 
 public class adminOP {
 
+	
 	@Given("a list of houses with their state.")
 	public void aListOfHousesWithTheirState(io.cucumber.datatable.DataTable dataTable) {
 	    // Write code here that turns the phrase above into concrete actions

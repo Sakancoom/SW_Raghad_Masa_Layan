@@ -10,7 +10,7 @@ Background:
 Scenario: A request was added succefully
 Given that the admin is logged in 
 And there is a housing request with id "3" , Location "Ras Alain", rooms_num "4" ,student_num "1",price "120", details "third floor", owner "Asem"
-Then a worker whose id "3" , Location "Ras Alain", rooms_num "4" ,student_num "1",price "120", details "third floor", owner "Asem" was added
+Then a house whose id "3" , Location "Ras Alain", rooms_num "4" ,student_num "1",price "120", details "third floor", owner "Asem" was added
 
 
 

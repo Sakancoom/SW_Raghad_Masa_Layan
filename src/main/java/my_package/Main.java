@@ -171,7 +171,7 @@ public class Main {
 			break;
 			case 5:
 			{
-				System.out.println("What do yoy want to do?\n\r 1-delete a house \n\r 2-add a house");
+				System.out.println("What do you want to do?\n\r 1-delete a house \n\r 2-add a house");
 				House h2=new House();
 				int op=input.nextInt();
 				if(op==1) {

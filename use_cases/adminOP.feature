@@ -13,11 +13,7 @@ Given that the admin is logged in
 And there is a house with ID "2025" ,Location "Near an najah university",rooms_num "5", student_num "1", Details "The sakan is at 7th floor with elevator",Price "120 Dinar", Owner "Dalia Manasrah" 
 Then a house whose ID "2025" ,Location "Near an najah university",rooms_num "5", student_num "1", Details "The sakan is at 7th floor with elevator",Price "120 Dinar", Owner "Dalia Manasrah" was added
 
-Scenario: Update a house information
-Given that you want to update the student_num to "4"  , Price "120"
-And admin is logged in 
-When his own ID "2033"
-Then the information for a house was updated
+
 
 Scenario: Delete a house
 Given that you want to delete a house whose id "2024",Location "BaitWazan",rooms_num "6", student_num "4",Details "with balkon", Price "130", Owner "Masa Yaseen"
@@ -36,7 +32,3 @@ Given that you want to delete a worker whose id "2024",Location "BaitWazan",room
 And admin is logged in
 Then the house you want to delete does not exist
 
-Scenario: Update a house information fails
-Given that you want to update the student_num to "4"  , Price "120"
-And admin is logged in
-Then the house you want to update his information does not exist

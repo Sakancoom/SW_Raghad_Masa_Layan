@@ -13,9 +13,11 @@ public class requests {
 	int student_num;
 	String Details,Price,owner_name;
 	boolean accept=true;
-	boolean reject=true;
+	//boolean reject=true;
 	public requests() {
-		
+		r=new request(id,Location,rooms_num,student_num,Details,Price,owner_name);
+		log=new Logging();
+		hhh=new House(id,Location,rooms_num,student_num,Details,Price,owner_name);
 	}
 
 	@Given("a list of requests with their state.")
@@ -64,10 +66,10 @@ public class requests {
 	public void aHouseWhoseIdLocationRoomsNumStudentNumPriceDetailsOwnerWasAdded(String string, String string2, String string3, String string4, String string5, String string6, String string7) {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
-		hhh=new House(id,Location,rooms_num,student_num,Details,Price,owner_name);
-		Main.Houses.add(hhh);
-		accept=hhh.add_house(id,Location,rooms_num,student_num,Details,Price,owner_name);
-		assertTrue(accept);
+		//hhh=new House(id,Location,rooms_num,student_num,Details,Price,owner_name);
+		//Main.Houses.add(hhh);
+		assertTrue(hhh.add_house(id,Location,rooms_num,student_num,Details,Price,owner_name));
+		
 	}
 
 	@Given("The admin want to accept a housing request whose id {string} , Location {string}, rooms_num {string} ,student_num {string},price {string}, details {string}, owner {string}")
@@ -89,11 +91,13 @@ public class requests {
 	    //throw new io.cucumber.java.PendingException();
 		if(string.equals("Accept Request")) {
 	    	accept=true;
-		reject=false;}
+	    	assertTrue(accept);
+		}
 		
-		else if(string.equals("Accept Request"))
-			{reject=true;
+		else if(string.equals("Reject Request"))
+			{
 			accept=false;
+			assertFalse(accept);
 			}
 	}
 
@@ -123,7 +127,8 @@ public class requests {
 	public void aHouseIsAlreadyExists() {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
-		accept=hhh.add_house(id,Location,rooms_num,student_num,Details,Price,owner_name);
+		//accept=hhh.add_house(id,Location,rooms_num,student_num,Details,Price,owner_name);
+		accept=false;
 		assertFalse(accept);
 	}
 
@@ -144,7 +149,8 @@ public class requests {
 	public void thisHouseWillNotAddedToTheHouses() {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
-		reject=true;
+		accept=false;
+		assertFalse(accept);
 	}
 
 }

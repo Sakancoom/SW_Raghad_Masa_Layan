@@ -19,9 +19,9 @@ public class Main {
 		 
 	 }
 	public static void init() {
-		Admin A1=new Admin("12345","pass1234","Raghad Matar","raghad@gmail.com");
+		Admin A1=new Admin("12345","pass1234","Raghad","raghad@gmail.com");
 		Admins.add(A1);
-		ads.put("Raghad Matar", "pass1234");
+		ads.put("Raghad", "pass1234");
 		
 		Owner O1=new Owner("223344","ahmad11","Ahmad","Ahmad@gmail.com","0599554828");
 		Owners.add(O1);
@@ -35,6 +35,11 @@ public class Main {
 		Tenants.add(T2);
 		Tenant T3=new Tenant("2002","Rania14","Rania","Rania.com");
 		Tenants.add(T3);
+		request r1=new request("234","Nablus",5,3,"with balkon","120","Ali");
+		requests.add(r1);
+		request r2=new request("7484","Nablus",5,4,"with balkon","120","Ahmad");
+		requests.add(r2);
+		
 		
 	start();	
 	}
@@ -46,7 +51,7 @@ public class Main {
 				+ "3.Tenant.\n\r");
 		int role=input.nextInt();
 		if(role==1) {
-			AdminActivities();
+			admin_login();
 		}
 		else if(role==2) {
 			OwnerActivities();
@@ -61,29 +66,38 @@ public class Main {
 		
 	}
 	public static void admin_login() {
-		//int adFlag=0;
+		int nameFlag=0;
+		int passFlag=0;
 		System.out.println("Enter your name:\r\n");
 		 namee=input.next();
-		System.out.println("Enter your password:\r\n");
-		 password=input.next();
-		for(int i=0;i<ads.size();i++)
-		{
-			if(ads.containsValue(namee)) {
+		 for(int i=0;i<ads.size();i++) {
+				if(Admins.get(i).getName().equalsIgnoreCase(namee)) {
+					System.out.println("hereeee");
+					nameFlag=1;
+					break;
+				}
+				else {
+					System.out.println("The user name is INVALID as an admin, please try again");
+					admin_login();
+				}
+		 }
+		 
+		
+		 while(passFlag==0) {
+			 System.out.println("Enter your password:\r\n");
+			 password=input.next();
 				if(ads.get(namee).equalsIgnoreCase(password)) {
-					adFlag=1;
+					passFlag=1;
 					break;
 				}
 				else {
 					System.out.println("The password is Incorrect,please try again");
-					AdminActivities();
+					
 				}
-			}
-			else {
-				System.out.println("The user name is INVALID as an admin, please try again");
-				AdminActivities();
-			}
+			
+			
 		}
-		if(adFlag==1) {
+		if(nameFlag==1 && passFlag==1) {
 			AdminActivities();
 		}
 		
@@ -111,16 +125,17 @@ public class Main {
 //				AdminActivities();
 //			}
 //		}
-		
+		int outt=0;
 			System.out.println("Welcome"+namee+".\r\n What do you want?\r\n ");
+			while(outt==0) {
 			System.out.println("1-Show the list of houses owners.\r\n"
-					+ "2-Show the list of the application users.\\r\\n"
-					+ "3-Show the list of all houses in the application.\\r\\n"
-					+ "4-Show the request of adding houses from the owners.\\r\\n"
-					+ "5-Modify existing houses info.\\r\\n"
-					+ "6-Show A REPORT about all reservations via the app.\\r\\n"
-					+ "7-Check for any sent emails from users or owners.\\r\\n"
-					+"8-Log Out\\r\\n");
+					+ "2-Show the list of the application users.\r\n"
+					+ "3-Show the list of all houses in the application.\r\n"
+					+ "4-Show the request of adding houses from the owners.\r\n"
+					+ "5-Modify existing houses info.\r\n"
+					+ "6-Show A REPORT about all reservations via the app.\r\n"
+					+ "7-Check for any sent emails from users or owners.\r\n"
+					+"8-Log Out\r\n");
 			int choice=input.nextInt();
 			switch(choice) {
 			case 1:
@@ -217,10 +232,12 @@ public class Main {
 			break;
 			case 8:
 			{
+				
 				start();
 			}
 			break;
 			default:AdminActivities();
+			}
 			}
 			
 		

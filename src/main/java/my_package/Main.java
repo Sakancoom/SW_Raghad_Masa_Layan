@@ -14,6 +14,7 @@ public class Main {
 	public static ArrayList <House>  Houses=new ArrayList<House> ();
 	public static ArrayList <request>  requests=new ArrayList<request> ();
 	public static HashMap <String,String> ads=new HashMap <String, String> ();
+	public static HashMap <String,String> owns=new HashMap <String, String> ();
 	public static int adFlag=0;
 	public static String namee;
 	public static String password;
@@ -41,10 +42,13 @@ public class Main {
 		
 		Owner O1=new Owner("223344","ahmad11","Ahmad","Ahmad@gmail.com","0599554828");
 		Owners.add(O1);
+		owns.put("Ahmad","ahmad11");
 		Owner O2=new Owner("234234","Masa22","Masa","Masa@gmail.com","0594678453");
 		Owners.add(O2);
+		owns.put("Masa","Masa22");
 		Owner O3=new Owner("123123","Layan33","Layan","Layan@gmail.com","0598345762");
 		Owners.add(O3);
+		owns.put("Layan","Layan33");
 		Tenant T1=new Tenant("2001","alaa200","Alaa","Alaa@gmail.com");
 		Tenants.add(T1);
 		Tenant T2=new Tenant("2002","Hiba99","Hiba","Hiba@gmail.com");
@@ -119,6 +123,43 @@ public class Main {
 		}
 		if(nameFlag==1 && passFlag==1) {
 			AdminActivities();
+		}
+		
+	}
+	public static void owner_login() {
+		int nameFlag=0;
+		int passFlag=0;
+		System.out.println("Enter your name:\r\n");
+		 namee=input.next();
+		 for(int i=0;i<owns.size();i++) {
+				if(Owners.get(i).getName().equalsIgnoreCase(namee)) {
+					System.out.println("hereeee");
+					nameFlag=1;
+					break;
+				}
+				else {
+					System.out.println("The user name is INVALID as an Owner, please try again");
+					admin_login();
+				}
+		 }
+		 
+		
+		 while(passFlag==0) {
+			 System.out.println("Enter your password:\r\n");
+			 password=input.next();
+				if(owns.get(namee).equalsIgnoreCase(password)) {
+					passFlag=1;
+					break;
+				}
+				else {
+					System.out.println("The password is Incorrect,please try again");
+					
+				}
+			
+			
+		}
+		if(nameFlag==1 && passFlag==1) {
+			OwnerActivities();
 		}
 		
 	}

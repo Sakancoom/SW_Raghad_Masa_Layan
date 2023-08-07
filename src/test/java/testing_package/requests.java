@@ -17,7 +17,7 @@ public class requests {
 	public requests() {
 		r=new request(id,Location,rooms_num,student_num,Details,Price,owner_name);
 		log=new Logging();
-		hhh=new House(id,Location,rooms_num,student_num,Details,Price,owner_name);
+		hhh=new House(id,Location,rooms_num,student_num,Details,Price,owner_name,"0");
 	}
 
 	@Given("a list of requests with their state.")
@@ -68,7 +68,7 @@ public class requests {
 	    //throw new io.cucumber.java.PendingException();
 		//hhh=new House(id,Location,rooms_num,student_num,Details,Price,owner_name);
 		//Main.Houses.add(hhh);
-		assertTrue(hhh.add_house(id,Location,rooms_num,student_num,Details,Price,owner_name));
+		assertTrue(hhh.add_house(id,Location,rooms_num,student_num,Details,Price,owner_name,"0"));
 		
 	}
 
@@ -106,7 +106,7 @@ public class requests {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
 		
-		accept=hhh.add_house(id,Location,rooms_num,student_num,Details,Price,owner_name);
+		accept=hhh.add_house(id,Location,rooms_num,student_num,Details,Price,owner_name,"0");
 		assertTrue(accept);
 	}
 

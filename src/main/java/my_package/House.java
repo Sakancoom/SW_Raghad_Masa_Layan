@@ -12,9 +12,14 @@ public class House {
 	protected String Details;
 	protected String Price;
 	protected String owner_name;
+	protected String HouseFlag;
+	boolean addh;
+	boolean deleteh; 
+	boolean updateh;
+	
 	
 
-public House(String id,String Location,int rooms_num,int student_num, String Details, String Price, String owner_name) {
+public House(String id,String Location,int rooms_num,int student_num, String Details, String Price, String owner_name, String HouseFlag) {
 		super();
 		this.id=id;
 		this.Location = Location;
@@ -23,9 +28,58 @@ public House(String id,String Location,int rooms_num,int student_num, String Det
 		this.Details = Details;
 		this.Price=Price;
 		this.owner_name=owner_name;
+		this.HouseFlag=HouseFlag;
 		
 	}
-public boolean add_house(String id,String Location,int rooms_num,int student_num, String Details, String Price, String owner_name) {
+public String getHouseFlag() {
+	return HouseFlag;
+}
+public void setHouseFlag(String houseFlag) {
+	HouseFlag = houseFlag;
+}
+public String getId() {
+	return id;
+}
+public void setId(String id) {
+	this.id = id;
+}
+public String getLocation() {
+	return Location;
+}
+public void setLocation(String location) {
+	Location = location;
+}
+public int getRooms_num() {
+	return rooms_num;
+}
+public void setRooms_num(int rooms_num) {
+	this.rooms_num = rooms_num;
+}
+public int getStudent_num() {
+	return student_num;
+}
+public void setStudent_num(int student_num) {
+	this.student_num = student_num;
+}
+public String getDetails() {
+	return Details;
+}
+public void setDetails(String details) {
+	Details = details;
+}
+public String getPrice() {
+	return Price;
+}
+public void setPrice(String price) {
+	Price = price;
+}
+public String getOwner_name() {
+	return owner_name;
+}
+public void setOwner_name(String owner_name) {
+	this.owner_name = owner_name;
+}
+public boolean add_house(String id,String Location,int rooms_num,int student_num, String Details, String Price, String owner_name,String HouseFlag) {
 	boolean add=true;
 	for(int i=0;i<Main.Houses.size();i++) {
 		if(id.equals(Main.Houses.get(i).id)) {
@@ -35,7 +89,7 @@ public boolean add_house(String id,String Location,int rooms_num,int student_num
 	}
 	if(add==false)return false;
 	else {
-	House hh=new House(id,Location,rooms_num,student_num,Details,Price,owner_name);
+	House hh=new House(id,Location,rooms_num,student_num,Details,Price,owner_name,HouseFlag);
 	Main.Houses.add(hh);
 	return add;
 	}
@@ -54,19 +108,14 @@ public boolean  delete_house(String id) {
 	return del;
 	
 }
-public void update_house(String id,String Location,int rooms_num,int student_num, String Details, String Price, String owner_name) {
-	for(int y=0;y<Main.Houses.size();y++) {
-		if ((Main.Houses.get(y).id).equals(id))
-		{
-			Main.Houses.get(y).id=id;
-			Main.Houses.get(y).Location=Location;
-			Main.Houses.get(y).rooms_num=rooms_num;
-			Main.Houses.get(y).student_num=student_num;
-			Main.Houses.get(y).Details=Details;
-			Main.Houses.get(y).Price=Price;
-			Main.Houses.get(y).owner_name=owner_name;
-		}
-	}
+public String  show_House() {
+	String h="The  owner name is:"+owner_name+ "| ID:"+ id + "| Location:" + Location+"| rooms num:" + rooms_num+"| student num:" + student_num+"| Details:" + Details+ "| HouseFlag:" + HouseFlag+"\n";
+	/*System.out.printf("The name is:%s | ",name);
+	System.out.printf("The id is:%s | ",id);
+	System.out.printf("The email is:%s  \n",email);*/
+	return h;
+	
 }
+
 
 }

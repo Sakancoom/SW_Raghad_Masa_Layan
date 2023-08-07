@@ -14,7 +14,7 @@ public class adminOP {
 	String id,Location;
 	int rooms_num;
 	int student_num;
-	String Details,Price,owner_name;
+	String Details,Price,owner_name,HouseFlag;
 	boolean add=false;
 	boolean del=false;
 	public adminOP() {
@@ -36,7 +36,7 @@ public class adminOP {
 		String id,Location;
 		int rooms_num;
 		int student_num;
-		String Details,Price,owner_name;
+		String Details,Price,owner_name,HouseFlag;
 		for(int i=0; i< dataTable.height() ; i++){
 			id = dataTable.cell(i,0);
 		    Location = dataTable.cell(i,1);
@@ -45,7 +45,8 @@ public class adminOP {
 			Details = dataTable.cell(i,4);
 			Price = dataTable.cell(i,5);
 			owner_name = dataTable.cell(i,6);
-			hhh=new House(id,Location,rooms_num,student_num,Details,Price,owner_name);
+			HouseFlag=dataTable.cell(i, 7);
+			hhh=new House(id,Location,rooms_num,student_num,Details,Price,owner_name,HouseFlag);
 			Main.Houses.add(hhh);
 			}
 	}
@@ -57,8 +58,8 @@ public class adminOP {
 		log.logState(true);
 	}
 
-	@Given("there is a house with ID {string} ,Location {string},rooms_num {string}, student_num {string}, Details {string},Price {string}, Owner {string}")
-	public void thereIsAHouseWithIDLocationRoomsNumStudentNumDetailsPriceOwner(String string, String string2, String string3, String string4, String string5, String string6, String string7) {
+	@Given("there is a house with ID {string} ,Location {string},rooms_num {string}, student_num {string}, Details {string},Price {string}, Owner {string},HouseFlag {string}")
+	public void thereIsAHouseWithIDLocationRoomsNumStudentNumDetailsPriceOwner(String string, String string2, String string3, String string4, String string5, String string6, String string7,String string8) {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
 		id = string;
@@ -68,10 +69,11 @@ public class adminOP {
 		Details = string5;
 		Price = string6;
 		owner_name = string7;
+		HouseFlag=string8;
 	}
 
-	@Then("a house whose ID {string} ,Location {string},rooms_num {string}, student_num {string}, Details {string},Price {string}, Owner {string} was added")
-	public void aHouseWhoseIDLocationRoomsNumStudentNumDetailsPriceOwnerWasAdded(String string, String string2, String string3, String string4, String string5, String string6, String string7) {
+	@Then("a house whose ID {string} ,Location {string},rooms_num {string}, student_num {string}, Details {string},Price {string}, Owner {string},HouseFlag {string} was added")
+	public void aHouseWhoseIDLocationRoomsNumStudentNumDetailsPriceOwnerWasAdded(String string, String string2, String string3, String string4, String string5, String string6, String string7,String string8) {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
 		id = string;
@@ -81,7 +83,8 @@ public class adminOP {
 		Details = string5;
 		Price = string6;
 		owner_name = string7;
-		assertTrue(hhh.add_house(id,Location,rooms_num,student_num,Details,Price,owner_name));
+		HouseFlag=string8;
+		assertTrue(hhh.add_house(id,Location,rooms_num,student_num,Details,Price,owner_name,"0"));
 	}
 
 
@@ -101,8 +104,8 @@ public class adminOP {
 		assertTrue(true);
 	}
 
-	@Given("that you want to delete a house whose id {string},Location {string},rooms_num {string}, student_num {string},Details {string}, Price {string}, Owner {string}")
-	public void thatYouWantToDeleteAHouseWhoseIdLocationRoomsNumStudentNumDetailsPriceOwner(String string, String string2, String string3, String string4, String string5, String string6, String string7) {
+	@Given("that you want to delete a house whose id {string},Location {string},rooms_num {string}, student_num {string},Details {string}, Price {string}, Owner {string},HouseFlag {string}")
+	public void thatYouWantToDeleteAHouseWhoseIdLocationRoomsNumStudentNumDetailsPriceOwner(String string, String string2, String string3, String string4, String string5, String string6, String string7,String string8) {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
 		id = string;
@@ -112,6 +115,8 @@ public class adminOP {
 		Details = string5;
 		Price = string6;
 		owner_name = string7;
+		HouseFlag = string8;
+		//assertTrue(true);
 	}
 
 	@Then("you delete all the information of the house")
@@ -131,8 +136,8 @@ public class adminOP {
 		assertFalse(add);
 	}
 
-	@Given("that you want to delete a worker whose id {string},Location {string},rooms_num {string}, student_num {string},Details {string}, Price {string}, Owner {string}")
-	public void thatYouWantToDeleteAWorkerWhoseIdLocationRoomsNumStudentNumDetailsPriceOwner(String string, String string2, String string3, String string4, String string5, String string6, String string7) {
+	@Given("that you want to delete a worker whose id {string},Location {string},rooms_num {string}, student_num {string},Details {string}, Price {string}, Owner {string},HouseFlag {string}")
+	public void thatYouWantToDeleteAWorkerWhoseIdLocationRoomsNumStudentNumDetailsPriceOwner(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8) {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
 		id = string;
@@ -142,6 +147,7 @@ public class adminOP {
 		Details = string5;
 		Price = string6;
 		owner_name = string7;
+		HouseFlag=string8;
 	}
 
 	@Then("the house you want to delete does not exist")

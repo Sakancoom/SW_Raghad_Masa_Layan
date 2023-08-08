@@ -184,7 +184,7 @@ public class Main {
 			case 1:
 			{
 				for(int i=0;i<Owners.size();i++) {
-					format=String.format("Name: %s   Email: %s  Phone: %s  \n\r", Owners.get(i).name,Owners.get(i).email,Owners.get(i).phoneNum);
+					format=String.format("Name: %s   Email: %s  Phone: %s  %n", Owners.get(i).name,Owners.get(i).email,Owners.get(i).phoneNum);
 					logger.info("The owners are:\r\n");
 					logger.info(format);
 				}
@@ -193,7 +193,7 @@ public class Main {
 			case 2:
 			{
 				for(int i=0;i<Tenants.size();i++) {
-					format=String.format("Name: %s   Email: %s  \n\r", Tenants.get(i).name,Tenants.get(i).email); 
+					format=String.format("Name: %s   Email: %s  %n", Tenants.get(i).name,Tenants.get(i).email); 
 					logger.info("The Tenants are:\r\n");
 					logger.info(format);
 				}
@@ -242,7 +242,9 @@ public class Main {
 					logger.info("choose the id of the house you want to delete\r\n");
 					for(int i=0;i<Houses.size();i++) {
 						
-						logger.info((i+1)+" ID: "+ Houses.get(i).id+"\t"+" Location: "+ Houses.get(i).location+"\t"+" Details: "+ Houses.get(i).details+"\t"+" Room number: "+ Houses.get(i).roomsNum+"\t"+" Student number: "+ Houses.get(i).studentNum+"\t"+" Price: "+ Houses.get(i).price+"\t"+" Owner name: "+ Houses.get(i).ownerName+"\t"+"\n\r");
+						format=String.format("ID: %s Location: %s  Details:%s Room number:%s Student number:%s  Price:%s Owner name:%s  %n",Houses.get(i).location, Houses.get(i).location,Houses.get(i).details,Houses.get(i).roomsNum,Houses.get(i).studentNum,Houses.get(i).price,Houses.get(i).ownerName); 
+						logger.info(format);
+					
 					}
 					String ch=input.next();
 					for(int y=0;y<Main.Houses.size();y++) {
@@ -301,25 +303,13 @@ public class Main {
     		logger.info("\n Welcome to the Controlpanel for housing plz enter show houses!\r\n"
 					+"--------------------------------------------------"
 					+"Please select an option from the following menu:\r\n"
-					
 					+"1.show houses(id ,locations)\r\n"
-					
 					+"2.add new house(the request is pending until the admin approve it) \r\n"
-					
 					+"3.Update an existing house \r\n"
-					
 					+"4.delete house \r\n"
-				
-					//+"5.show contact info \r\n"
-			
 					+"5.Please enter the id of the house that you want to know it's number of students(tenant)\r\n"
-					
-					
-					
 					+"6. Show more details of specific house \r\n"
-					
 					+"7. LogOut\r\n"
-					
 					+"8. Quit\r\n"
 					+"Enter the number of the activity you want to perform:\r\n");
 					

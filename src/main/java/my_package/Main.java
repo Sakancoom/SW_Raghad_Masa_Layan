@@ -1,21 +1,24 @@
 package my_package;
+import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.function.Supplier;
+import java.util.logging.Logger;
 
-import io.cucumber.core.logging.Logger;
-
-import java.util.*;
 
 public class Main {
 	public static Scanner input=new Scanner(System.in);
-	public static ArrayList <Admin>  Admins=new ArrayList<Admin> ();
-	public static ArrayList <Owner>  Owners=new ArrayList<Owner> ();
-	public static ArrayList <Tenant>  Tenants=new ArrayList<Tenant> ();
-	public static ArrayList <reservation> reservations =new ArrayList<reservation> ();
-	public static ArrayList <House>  Houses=new ArrayList<House> ();
-	public static ArrayList <request>  requests=new ArrayList<request> ();
-	public static HashMap <String,String> ads=new HashMap <String, String> ();
-	public static HashMap <String,String> owns=new HashMap <String, String> ();
-	public static int adFlag=0;
+	public static final List <Admin>  Admins=new ArrayList<Admin> ();
+	public static final List <Owner>  Owners=new ArrayList<Owner> ();
+	public static final List <Tenant>  Tenants=new ArrayList<Tenant> ();
+	public static final List <reservation> reservations =new ArrayList<reservation> ();
+	public static final List <House>  Houses=new ArrayList<House> ();
+	public static final List <request>  requests=new ArrayList<request> ();
+	public static final Map <String,String> ads=new HashMap <String, String> ();
+	public static final Map <String,String> owns=new HashMap <String, String> ();
+
 	public static String namee;
 	public static String password;
 	public static final  String INVALID="Invalid choice. Please try again.";
@@ -32,7 +35,9 @@ public class Main {
 	static String TLocation;
 	static int Tnum;	static int Tnum2; static int TOP;
 	public static void main(String [] args) {
-		 init();
+		 logger = Logger.getLogger(Main.class.getName());
+
+		init();
 		 
 	 }
 	public static void init() {
@@ -92,30 +97,30 @@ public class Main {
 	public static void admin_login() {
 		int nameFlag=0;
 		int passFlag=0;
-		System.out.println("Enter your name:\r\n");
+		logger.info("Enter your name:\r\n");
 		 namee=input.next();
 		 for(int i=0;i<ads.size();i++) {
 				if(Admins.get(i).getName().equalsIgnoreCase(namee)) {
-					System.out.println("hereeee");
+					//logger.info(LOGOUT);
 					nameFlag=1;
 					break;
 				}
 				else {
-					System.out.println("The user name is INVALID as an admin, please try again");
+					logger.info("The user name is INVALID as an admin, please try again");
 					admin_login();
 				}
 		 }
 		 
 		
 		 while(passFlag==0) {
-			 System.out.println("Enter your password:\r\n");
+			 logger.info("Enter your password:\r\n");
 			 password=input.next();
 				if(ads.get(namee).equalsIgnoreCase(password)) {
 					passFlag=1;
 					break;
 				}
 				else {
-					System.out.println("The password is Incorrect,please try again");
+					logger.info("The password is Incorrect,please try again");
 					
 				}
 			
@@ -129,30 +134,29 @@ public class Main {
 	public static void owner_login() {
 		int nameFlag=0;
 		int passFlag=0;
-		System.out.println("Enter your name:\r\n");
+		logger.info("Enter your name:\r\n");
 		 namee=input.next();
 		 for(int i=0;i<owns.size();i++) {
 				if(Owners.get(i).getName().equalsIgnoreCase(namee)) {
-					System.out.println("hereeee");
 					nameFlag=1;
 					break;
 				}
 				else {
-					System.out.println("The user name is INVALID as an Owner, please try again");
+					logger.info("The user name is INVALID as an Owner, please try again");
 					admin_login();
 				}
 		 }
 		 
 		
 		 while(passFlag==0) {
-			 System.out.println("Enter your password:\r\n");
+			 logger.info("Enter your password:\r\n");
 			 password=input.next();
 				if(owns.get(namee).equalsIgnoreCase(password)) {
 					passFlag=1;
 					break;
 				}
 				else {
-					System.out.println("The password is Incorrect,please try again");
+					logger.info("The password is Incorrect,please try again");
 					
 				}
 			
@@ -164,32 +168,11 @@ public class Main {
 		
 	}
 	public static void AdminActivities() {
-//		int adFlag=0;
-//		System.out.println("Enter your name:\r\n");
-//		String namee=input.next();
-//		System.out.println("Enter your password:\r\n");
-//		String password=input.next();
-//		for(int i=0;i<ads.size();i++)
-//		{
-//			if(ads.containsValue(namee)) {
-//				if(ads.get(namee).equalsIgnoreCase(password)) {
-//					adFlag=1;
-//					break;
-//				}
-//				else {
-//					System.out.println("The password is Incorrect,please try again");
-//					AdminActivities();
-//				}
-//			}
-//			else {
-//				System.out.println("The user name is INVALID as an admin, please try again");
-//				AdminActivities();
-//			}
-//		}
+
 		int outt=0;
-			System.out.println("Welcome"+namee+".\r\n What do you want?\r\n ");
+		logger.info("Welcome"+namee+".\r\n What do you want?\r\n ");
 			while(outt==0) {
-			System.out.println("1-Show the list of houses owners.\r\n"
+				logger.info("1-Show the list of houses owners.\r\n"
 					+ "2-Show the list of the application users.\r\n"
 					+ "3-Show the list of all houses in the application.\r\n"
 					+ "4-Show the request of adding houses from the owners.\r\n"
@@ -202,44 +185,44 @@ public class Main {
 			case 1:
 			{
 				for(int i=0;i<Owners.size();i++) {
-					System.out.println("The owners are:\r\n");
-					System.out.println((i+1)+" Name: "+ Owners.get(i).name+"\t"+" Email: "+ Owners.get(i).email+"\t"+ " Phone: "+ Owners.get(i).phoneNum+"\n\r");
+					logger.info("The owners are:\r\n");
+					logger.info((i+1)+" Name: "+ Owners.get(i).name+"\t"+" Email: "+ Owners.get(i).email+"\t"+ " Phone: "+ Owners.get(i).phoneNum+"\n\r");
 				}
 			}
 			break;
 			case 2:
 			{
 				for(int i=0;i<Tenants.size();i++) {
-					System.out.println("The Tenants are:\r\n");
-					System.out.println((i+1)+" Name: "+ Tenants.get(i).name+"\t"+" Email: "+ Tenants.get(i).email+"\n\r");
+					logger.info("The Tenants are:\r\n");
+					logger.info((i+1)+" Name: "+ Tenants.get(i).name+"\t"+" Email: "+ Tenants.get(i).email+"\n\r");
 				}
 			}
 			break;
 			case 3:
 			{
 				for(int i=0;i<Houses.size();i++) {
-					System.out.println("The Houses are:\r\n");
-					System.out.println((i+1)+" Location: "+ Houses.get(i).Location+"\t"+" Details: "+ Houses.get(i).Details+"\t"+" Room number: "+ Houses.get(i).rooms_num+"\t"+" Student number: "+ Houses.get(i).student_num+"\t"+" Price: "+ Houses.get(i).Price+"\t"+" Owner name: "+ Houses.get(i).owner_name+"\t"+ Houses.get(i).HouseFlag+"\t"+"\n\r");
+					logger.info("The Houses are:\r\n");
+					logger.info((i+1)+" Location: "+ Houses.get(i).Location+"\t"+" Details: "+ Houses.get(i).Details+"\t"+" Room number: "+ Houses.get(i).rooms_num+"\t"+" Student number: "+ Houses.get(i).student_num+"\t"+" Price: "+ Houses.get(i).Price+"\t"+" Owner name: "+ Houses.get(i).owner_name+"\t"+ Houses.get(i).HouseFlag+"\t"+"\n\r");
 				}
 			}
 			break;
 			case 4:
 			{
 				for(int i=0;i<requests.size();i++) {
-					System.out.println("The pending requests are:\r\n");
-					System.out.println((i+1)+"House id:"+requests.get(i).id+"\t"+" Location: "+ requests.get(i).Location+"\t"+" Details: "+ requests.get(i).Details+"\t"+" Room number: "+ requests.get(i).rooms_num+"\t"+" Student number: "+ requests.get(i).student_num+"\t"+" Price: "+ requests.get(i).Price+"\t"+" Owner name: "+ requests.get(i).owner_name+"\t"+"\n\r");
-					System.out.println("\n\r Do you want to \n\r"
+					logger.info("The pending requests are:\r\n");
+					logger.info((i+1)+"House id:"+requests.get(i).id+"\t"+" Location: "+ requests.get(i).Location+"\t"+" Details: "+ requests.get(i).Details+"\t"+" Room number: "+ requests.get(i).rooms_num+"\t"+" Student number: "+ requests.get(i).student_num+"\t"+" Price: "+ requests.get(i).Price+"\t"+" Owner name: "+ requests.get(i).owner_name+"\t"+"\n\r");
+					logger.info("\n\r Do you want to \n\r"
 							+ "1- accept this request, so add the house to the app.\n\r"
 							+ "2- reject the request\n\r ");
 					int acc=input.nextInt();
 					if(acc==1) {
 						House hh=new House(requests.get(i).id,requests.get(i).Location,requests.get(i).rooms_num,requests.get(i).student_num,requests.get(i).Details,requests.get(i).Price,requests.get(i).owner_name,"0");
 						Houses.add(hh);
-						System.out.println("\n\r The house added successfuly \n\r");
+						logger.info("\n\r The house added successfuly \n\r");
 						
 					}
 					else if(acc==2) {
-						System.out.println("\n\r The house request removed \n\r ---------------\n\r");
+						logger.info("\n\r The house request removed \n\r ---------------\n\r");
 					}
 				}
 				
@@ -247,33 +230,33 @@ public class Main {
 			break;
 			case 5:
 			{
-				System.out.println("What do you want to do?\n\r 1-delete a house \n\r 2-add a house");
+				logger.info("What do you want to do?\n\r 1-delete a house \n\r 2-add a house");
 				House h2=new House();
 				int op=input.nextInt();
 				if(op==1) {
-					System.out.println("choose the id of the house you want to delete\r\n");
+					logger.info("choose the id of the house you want to delete\r\n");
 					for(int i=0;i<Houses.size();i++) {
 						
-						System.out.println((i+1)+" ID: "+ Houses.get(i).id+"\t"+" Location: "+ Houses.get(i).Location+"\t"+" Details: "+ Houses.get(i).Details+"\t"+" Room number: "+ Houses.get(i).rooms_num+"\t"+" Student number: "+ Houses.get(i).student_num+"\t"+" Price: "+ Houses.get(i).Price+"\t"+" Owner name: "+ Houses.get(i).owner_name+"\t"+"\n\r");
+						logger.info((i+1)+" ID: "+ Houses.get(i).id+"\t"+" Location: "+ Houses.get(i).Location+"\t"+" Details: "+ Houses.get(i).Details+"\t"+" Room number: "+ Houses.get(i).rooms_num+"\t"+" Student number: "+ Houses.get(i).student_num+"\t"+" Price: "+ Houses.get(i).Price+"\t"+" Owner name: "+ Houses.get(i).owner_name+"\t"+"\n\r");
 					}
 					String ch=input.next();
 					boolean x=h2.delete_house(ch);
 				}
 				if(op==2) {
-					System.out.println("Please, fill the information of the house you want to add\n\r");
-					System.out.println("\n\r ID:");
+					logger.info("Please, fill the information of the house you want to add\n\r");
+					logger.info("\n\r ID:");
 					String idd=input.next();
-					System.out.println("\n\r Location:");
+					logger.info("\n\r Location:");
 					String location=input.next();
-					System.out.println("\n\r Details:");
+					logger.info("\n\r Details:");
 					String details=input.next();
-					System.out.println("\n\r Number of rooms:");
+					logger.info("\n\r Number of rooms:");
 					int rooms=input.nextInt();
-					System.out.println("\n\r Number of students:");
+					logger.info("\n\r Number of students:");
 					int students=input.nextInt();
-					System.out.println("\n\r Price:");
+					logger.info("\n\r Price:");
 					String price=input.next();
-					System.out.println("\n\r Owner name:");
+					logger.info("\n\r Owner name:");
 					String Owner=input.next();
 					h2.add_house(idd, location, rooms, students, details, price, Owner,"0");
 				}
@@ -312,7 +295,7 @@ public class Main {
     		
 			
 			
-			System.out.println("\n Welcome to the Controlpanel for housing plz enter show houses!\r\n"
+    		logger.info("\n Welcome to the Controlpanel for housing plz enter show houses!\r\n"
 					+"--------------------------------------------------"
 					+"Please select an option from the following menu:\r\n"
 					
@@ -349,7 +332,7 @@ public class Main {
 						for(int i=0;i<Houses.size();i++) {
 							String l=String.format(DEC, i+1);
 							//System.out.println(l);
-							System.out.println(Houses.get(i).getId()+
+							logger.info(Houses.get(i).getId()+
 								
 		
 									"    "+ Houses.get(i).getLocation()+ 
@@ -380,27 +363,27 @@ public class Main {
 						
 
 
-						System.out.println("fill the house ID");
+						logger.info("fill the house ID");
 						String a = id.next();
 						
-						System.out.println("fill the location");
+						logger.info("fill the location");
 						String b=locat.nextLine();
 						
 						
-						System.out.println("fill the num of rooms");
+						logger.info("fill the num of rooms");
 						int c=rn.nextInt();
 						
 						
-						System.out.println("fill the num of students");
+						logger.info("fill the num of students");
 						int d=sn.nextInt();
 						
-						System.out.println("fill the house details");
+						logger.info("fill the house details");
 						String e=de.nextLine();
 						
-						System.out.println("fill the price");
+						logger.info("fill the price");
 						String f=pr.nextLine();
 						
-						System.out.println("fill the owner name");
+						logger.info("fill the owner name");
 						String g=on.nextLine();
 						
 						
@@ -410,9 +393,9 @@ public class Main {
 						boolean addd=Operations.addH(ad);
 						
 						if(addd) {
-							System.out.println("A new House added");
+							logger.info("A new House added");
 						} else {
-							System.out.println("A House is already exist"); 
+							logger.info("A House is already exist"); 
 						}
 						break;
 						
@@ -438,31 +421,31 @@ public class Main {
 						
 						Scanner on1 = new Scanner(System.in);//owner name
 						
-						System.out.println("Enter a HOUSE ID you want to update:");
+						logger.info("Enter a HOUSE ID you want to update:");
 		                
 		                String z = id1.next();
 		                
-		                System.out.println("fill  the new house ID");
+		                logger.info("fill  the new house ID");
 						String a1 = id1.next();
 						
-						System.out.println("fill the new location");
+						logger.info("fill the new location");
 						String b1=locat1.nextLine();
 						
 						
-						System.out.println("fill the new num of rooms");
+						logger.info("fill the new num of rooms");
 						int c1=rn1.nextInt();
 						
 						
-						System.out.println("fill the  new num of students");
+						logger.info("fill the  new num of students");
 						int d1=sn1.nextInt();
 						
-						System.out.println("fill the new house details");
+						logger.info("fill the new house details");
 						String e1=de1.nextLine();
 						
-						System.out.println("fill the  new price");
+						logger.info("fill the  new price");
 						String f1=pr1.nextLine();
 						
-						System.out.println("fill the new owner name");
+						logger.info("fill the new owner name");
 						String g1=on1.nextLine();
 		                
 		                
@@ -471,9 +454,9 @@ public class Main {
 		                boolean update = Operations.updateH(z,a1,b1,c1,d1, e1, f1, g1,"0");
 		                
 		                if (!update)
-		                	System.out.println("A House was updated");
+		                	logger.info("A House was updated");
 		                else
-		                	System.out.println("A House was not exist");
+		                	logger.info("A House was not exist");
 		                break;
 						
 					
@@ -484,7 +467,7 @@ public class Main {
 						int index = -1;
 		                Scanner id2 = new Scanner(System.in);
 		                
-		                System.out.println("Enter the house ID you want to delete:");
+		                logger.info("Enter the house ID you want to delete:");
 		                String z1 = id2.next();
 		                
 		                for (int i = 0; i < Main.Houses.size(); i++) {
@@ -495,11 +478,11 @@ public class Main {
 		                    }
 		                }
 		                if (index == -1) {
-		                	System.out.println("A house you want to delete does not exist");
+		                	logger.info("A house you want to delete does not exist");
 		                } else {
 		                    boolean delete = Operations.deleteH(Main.Houses.get(index));
 		                    if (!delete)
-		                    	System.out.println("A house was deleted");	       
+		                    	logger.info("A house was deleted");	       
 		                }
 
 
@@ -522,7 +505,7 @@ public class Main {
 					case 5:
 					
 					    Scanner id3 = new Scanner(System.in);
-					    System.out.println("Enter the house ID to know the number of students:");
+					    logger.info("Enter the house ID to know the number of students:");
 					    String houseId = id3.next();
 					    
 					    House targetHouse = null;
@@ -534,10 +517,10 @@ public class Main {
 					    }
 					    
 					    if (targetHouse != null) {
-					    	System.out.println("House ID: " + targetHouse.getId() +
+					    	logger.info("House ID: " + targetHouse.getId() +
 					                    ", Number of Students: " + targetHouse.getStudent_num());
 					    } else {
-					    	System.out.println("House with ID " + houseId + " not found.");
+					    	logger.info("House with ID " + houseId + " not found.");
 					    }
 					    break;
 						
@@ -550,7 +533,7 @@ public class Main {
 						
 						
 						  Scanner id4 = new Scanner(System.in);
-						  System.out.println("Enter the house ID to show more details:");
+						  logger.info("Enter the house ID to show more details:");
 						    String houseId2 = id4.next();
 						    
 						    House targetHouse2 = null;
@@ -564,14 +547,14 @@ public class Main {
 						    if (targetHouse2 != null) {
 						       
 						      
-						    	System.out.println("Number of Rooms: " + targetHouse2.getRooms_num());
+						    	logger.info("Number of Rooms: " + targetHouse2.getRooms_num());
 						        
 						       
-						    	System.out.println("Details: " + targetHouse2.getDetails());
-						    	System.out.println("Price: " + targetHouse2.getPrice());
+						    	logger.info("Details: " + targetHouse2.getDetails());
+						    	logger.info("Price: " + targetHouse2.getPrice());
 						      
 						    } else {
-						    	System.out.println("House with ID " + houseId2 + " not found.");
+						    	logger.info("House with ID " + houseId2 + " not found.");
 						    }
 						    break;
 						
@@ -602,10 +585,10 @@ public class Main {
 		 Scanner scanner = new Scanner(System.in);
 		 int flag=0;
 		 int eflag=1;
-			System.out.println(" To log in to  S A K A N C O M enter  Your email and password \n\r"
+		 logger.info(" To log in to  S A K A N C O M enter  Your email and password \n\r"
 					+ "enter your email\n\r");
 			Temail=scanner.nextLine();
-			System.out.println("enter your pass\n\r");
+			logger.info("enter your pass\n\r");
 			Tpass=scanner.nextLine();
 			Tnum2=0;
 			boolean emailFound = false;
@@ -617,14 +600,14 @@ public class Main {
 			            emailFound = true;
 			            break;
 			        } else {
-			            System.out.println("The password is incorrect, please try again");
+			        	logger.info("The password is incorrect, please try again");
 			            LoginTenant(); 
 			        }
 			    }
 			}
 
 			if (!emailFound) {
-			    System.out.println("The email is INVALID, please try again");
+				logger.info("The email is INVALID, please try again");
 			    LoginTenant(); 
 			}
 
@@ -641,34 +624,34 @@ public class Main {
 	 }
 	  public static void Tenantview()
 
-	 {System.out.println("The Houses are:\r\n");
+	 {logger.info("The Houses are:\r\n");
 		 for(int i=0;i<Houses.size();i++) {
 				
 				if(Houses.get(i).HouseFlag.equals("1")) {
-				System.out.println((i)+" Location: "+ Houses.get(i).Location+"\t"+" Details: "+ Houses.get(i).Details+"\t"+" Room number: "+ Houses.get(i).rooms_num+"\t"+" Student number: "+ Houses.get(i).student_num+"\t"+" Price: "+ Houses.get(i).Price+"\t"+" Owner name: "+ Houses.get(i).owner_name+"\t" + "booked up"+"\t" +"\n\r");
+					logger.info((i)+" Location: "+ Houses.get(i).Location+"\t"+" Details: "+ Houses.get(i).Details+"\t"+" Room number: "+ Houses.get(i).rooms_num+"\t"+" Student number: "+ Houses.get(i).student_num+"\t"+" Price: "+ Houses.get(i).Price+"\t"+" Owner name: "+ Houses.get(i).owner_name+"\t" + "booked up"+"\t" +"\n\r");
 			}
 				else if (Houses.get(i).HouseFlag.equals("0"))
 				{
-					System.out.println((i)+" Location: "+ Houses.get(i).Location+"\t"+" Details: "+ Houses.get(i).Details+"\t"+" Room number: "+ Houses.get(i).rooms_num+"\t"+" Student number: "+ Houses.get(i).student_num+"\t"+" Price: "+ Houses.get(i).Price+"\t"+" Owner name: "+ Houses.get(i).owner_name+"\t" + "available "+"\t" +"\n\r");
+					logger.info((i)+" Location: "+ Houses.get(i).Location+"\t"+" Details: "+ Houses.get(i).Details+"\t"+" Room number: "+ Houses.get(i).rooms_num+"\t"+" Student number: "+ Houses.get(i).student_num+"\t"+" Price: "+ Houses.get(i).Price+"\t"+" Owner name: "+ Houses.get(i).owner_name+"\t" + "available "+"\t" +"\n\r");
 				}
 				}
 		 TenantActivity();
 				}
 	 public static void TenantBook() {
 		 Scanner scanner = new Scanner(System.in);
-			 System.out.println("enter the Location u want:\r\n");
+		 logger.info("enter the Location u want:\r\n");
 				TLocation=scanner.nextLine();
 				Tnum=0;
 		 for(int i=0;i<Houses.size();i++) {
 				if(Houses.get(i).Location.equals(TLocation)) {
 				if(Houses.get(i).HouseFlag.equals("0")) { 
                   Tnum=Tnum+1;
-					 System.out.println("done successfully\r\n");
+                  logger.info("done successfully\r\n");
 					 Houses.get(i).HouseFlag="1";
 					 TenantCpanel();
 				}
 				else if(Houses.get(i).HouseFlag.equals("1")) {
-					 System.out.println("House is booked please try again \r\n");
+					logger.info("House is booked please try again \r\n");
 					 TenantBook();
 				}
 				}
@@ -677,8 +660,8 @@ public class Main {
 	 }
 	
 	 public static void TenantCpanel() {
-		 System.out.println( Tenants.get(Tnum2).show_member()+ "\r\n");
-		 System.out.println( Houses.get(Tnum).show_House()+ "\r\n");
+		 logger.info( Tenants.get(Tnum2).show_member()+ "\r\n");
+		 logger.info( Houses.get(Tnum).show_House()+ "\r\n");
 		 }
 	 
 	  public static void TenantActivity() {
@@ -687,12 +670,12 @@ public class Main {
 			
 		 
 			
-			System.out.println( "If u want to Book an house enter 1 \n\r");
+		  logger.info( "If u want to Book an house enter 1 \n\r");
 			Scanner scanner = new Scanner(System.in);
 			TOP=scanner.nextInt();
 			while(!(TOP==1))
 			{
-				System.out.println( "input invalid  If u want to Book an house enter 1\n\r");
+				logger.info( "input invalid  If u want to Book an house enter 1\n\r");
 				TOP=scanner.nextInt();
 				
 			}

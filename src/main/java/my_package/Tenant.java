@@ -58,6 +58,12 @@ public String  showMember() {
 	return "The name is:"+name+ "| ID:"+ id + "| Email:" + email+"\n";
 	
 }
+public int checkbill(int n1,int m1)
+{
+	int bil=n1*m1;
+	return bil;
+
+}
 
 
 }

@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 
 public class Main {
-	public static final Scanner input=new Scanner(System.in);
+	protected static final Scanner input=new Scanner(System.in);
 	public static final List <Admin>  Admins=new ArrayList<Admin> ();
 	public static final List <Owner>  Owners=new ArrayList<Owner> ();
 	public static final List <Tenant>  Tenants=new ArrayList<Tenant> ();

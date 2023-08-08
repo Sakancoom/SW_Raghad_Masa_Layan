@@ -243,20 +243,20 @@ public class Main {
 				if(op==2) {
 					logger.info("Please, fill the information of the house you want to add\n\r");
 					logger.info("\n\r ID:");
-					String idd=input.next();
+					String id=input.next();
 					logger.info("\n\r Location:");
 					String location=input.next();
 					logger.info("\n\r Details:");
 					String details=input.next();
 					logger.info("\n\r Number of rooms:");
-					int rooms=input.nextInt();
+					int roomsNum=input.nextInt();
 					logger.info("\n\r Number of students:");
 					int students=input.nextInt();
 					logger.info("\n\r Price:");
 					String price=input.next();
 					logger.info("\n\r Owner name:");
-					String Owner=input.next();
-					h2.add_house(idd, location, rooms, students, details, price, Owner,"0");
+					String ownerName=input.next();
+					h2.add_house(id, location, roomsNum, students, details, price, ownerName,"0");
 				}
 			
 			}

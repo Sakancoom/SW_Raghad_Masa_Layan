@@ -3,7 +3,7 @@ package my_package;
 public class House {
 	public House() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	protected String id;
 	public String getId() {
@@ -120,35 +120,35 @@ public House(String id,String location,int roomsNum,int studentNum, String detai
 	}
 
 public boolean add_house(String id,String Location,int rooms_num,int student_num, String Details, String Price, String owner_name,String HouseFlag) {
-	boolean add=true;
+	boolean isAdd=true;
 	for(int i=0;i<Main.Houses.size();i++) {
 		if(id.equals(Main.Houses.get(i).id)) {
-			add=false;
+			isAdd=false;
 			break;
 		}
 	}
-	if(add==false)return false;
+	if(isAdd==false)return false;
 	else {
 	House hh=new House(id,Location,rooms_num,student_num,Details,Price,owner_name,HouseFlag);
 	Main.Houses.add(hh);
-	return add;
+	return isAdd;
 	}
 	
 }
-public boolean  delete_house(String id) {
-	boolean del=false;
+public boolean deleteHouse(String id) {
+	boolean isDeleted=false;
 	for(int y=0;y<Main.Houses.size();y++) {
 		if ((Main.Houses.get(y).id).equals(id))
 		{
 			Main.Houses.remove(y);
-			del=true;
+			isDeleted=true;
 			
 		}
 	}
-	return del;
+	return isDeleted;
 	
 }
-public String  show_House() {
+public String  showHouse() {
 	
 	return "The  owner name is:"+ownerName+ "| ID:"+ id + "| Location:" + location+"| rooms num:" + roomsNum+"| student num:" + studentNum+"| Details:" + details+ "| HouseFlag:" + houseFlag+"\n";
 	

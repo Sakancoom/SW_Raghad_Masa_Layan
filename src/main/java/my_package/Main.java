@@ -238,7 +238,7 @@ public class Main {
 						logger.info((i+1)+" ID: "+ Houses.get(i).id+"\t"+" Location: "+ Houses.get(i).location+"\t"+" Details: "+ Houses.get(i).details+"\t"+" Room number: "+ Houses.get(i).roomsNum+"\t"+" Student number: "+ Houses.get(i).studentNum+"\t"+" Price: "+ Houses.get(i).price+"\t"+" Owner name: "+ Houses.get(i).ownerName+"\t"+"\n\r");
 					}
 					String ch=input.next();
-					boolean x=h2.delete_house(ch);
+					boolean x=h2.deleteHouse(ch);
 				}
 				if(op==2) {
 					logger.info("Please, fill the information of the house you want to add\n\r");
@@ -388,9 +388,9 @@ public class Main {
 
 						House ad = new House(a,b,c,d, e, f, g,"0");
 
-						boolean addd=Operations.addH(ad);
+						boolean isAdded=Operations.addH(ad);
 						
-						if(addd) {
+						if(isAdded) {
 							logger.info("A new House added");
 						} else {
 							logger.info("A House is already exist"); 
@@ -449,9 +449,9 @@ public class Main {
 		                
 		                
 		                
-		                boolean update = Operations.updateH(z,a1,b1,c1,d1, e1, f1, g1,"0");
+		                boolean isUpdate = Operations.updateH(z,a1,b1,c1,d1, e1, f1, g1,"0");
 		                
-		                if (!update)
+		                if (!isUpdate)
 		                	logger.info("A House was updated");
 		                else
 		                	logger.info("A House was not exist");
@@ -478,8 +478,8 @@ public class Main {
 		                if (index == -1) {
 		                	logger.info("A house you want to delete does not exist");
 		                } else {
-		                    boolean delete = Operations.deleteH(Main.Houses.get(index));
-		                    if (!delete)
+		                    boolean isDeleted = Operations.deleteH(Main.Houses.get(index));
+		                    if (!isDeleted)
 		                    	logger.info("A house was deleted");	       
 		                }
 
@@ -582,20 +582,20 @@ public class Main {
 	 {
 		 Scanner scanner = new Scanner(System.in);
 		 int flag=0;
-		 int eflag=1;
+		 
 		 logger.info(" To log in to  S A K A N C O M enter  Your email and password \n\r"
 					+ "enter your email\n\r");
 			Temail=scanner.nextLine();
 			logger.info("enter your pass\n\r");
 			Tpass=scanner.nextLine();
 			Tnum2=0;
-			boolean emailFound = false;
+			boolean isEmailFound = false;
 			for (int i = 0; i < Tenants.size(); i++) {
 			    if (Tenants.get(i).email.equalsIgnoreCase(Temail)) {
 			        if (Tenants.get(i).password.equalsIgnoreCase(Tpass)) {
 			            flag = 1;
 			            Tnum2 = Tnum2 + 1;
-			            emailFound = true;
+			            isEmailFound = true;
 			            break;
 			        } else {
 			        	logger.info("The password is incorrect, please try again");
@@ -604,7 +604,7 @@ public class Main {
 			    }
 			}
 
-			if (!emailFound) {
+			if (!isEmailFound) {
 				logger.info("The email is INVALID, please try again");
 			    LoginTenant(); 
 			}
@@ -659,7 +659,7 @@ public class Main {
 	
 	 public static void TenantCpanel() {
 		 logger.info( Tenants.get(Tnum2).showMember()+ "\r\n");
-		 logger.info( Houses.get(Tnum).show_House()+ "\r\n");
+		 logger.info( Houses.get(Tnum).showHouse()+ "\r\n");
 		 }
 	 
 	  public static void TenantActivity() {

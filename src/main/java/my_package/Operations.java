@@ -16,12 +16,12 @@ public static boolean addH(House h) {
 	for(int i=0; i<Main.Houses.size() ; i++) {
 		if         ((Main.Houses.get(i).getId().equals(h.getId()))
 				&& (Main.Houses.get(i).getLocation().equals(h.getLocation())) 
-				&& (Main.Houses.get(i).getRooms_num()==h.getRooms_num()) 
-				&& (Main.Houses.get(i).getStudent_num()==h.getStudent_num()) 
+				&& (Main.Houses.get(i).getRoomsNum()==h.getRoomsNum()) 
+				&& (Main.Houses.get(i).getStudentNum()==h.getStudentNum()) 
 				&& (Main.Houses.get(i).getDetails().equals(h.getDetails())) 
 				&& (Main.Houses.get(i).getPrice().equals(h.getPrice())) 
 
-				&& (Main.Houses.get(i).getOwner_name()==h.getOwner_name()))
+				&& (Main.Houses.get(i).getOwnerName().equals(h.getOwnerName())))
 				{
 			    add = false;
 				break;
@@ -45,12 +45,12 @@ public static boolean deleteH(House h) {
 			if      ((Main.Houses.get(i).getId().equals(h.getId()))
 					
 					&& (Main.Houses.get(i).getLocation().equals(h.getLocation())) 
-					&& (Main.Houses.get(i).getRooms_num()==h.getRooms_num()) 
-					&& (Main.Houses.get(i).getStudent_num()==h.getStudent_num()) 
+					&& (Main.Houses.get(i).getRoomsNum()==h.getRoomsNum()) 
+					&& (Main.Houses.get(i).getStudentNum()==h.getStudentNum()) 
 					&& (Main.Houses.get(i).getDetails().equals(h.getDetails())) 
 					&& (Main.Houses.get(i).getPrice().equals(h.getPrice())) 
 
-					&& (Main.Houses.get(i).getOwner_name()==h.getOwner_name()))
+					&& (Main.Houses.get(i).getOwnerName().equals(h.getOwnerName())))
 				
 				
 					{
@@ -85,11 +85,11 @@ public static boolean updateH(String idd,String House_id,String Location,int roo
 		//House.getH().get(index).setHouse_id(idd);
 		Main.Houses.get(index).setId(House_id);
 		Main.Houses.get(index).setLocation(Location);
-		Main.Houses.get(index).setRooms_num(rooms_num);
+		Main.Houses.get(index).setRoomsNum(rooms_num);
 		Main.Houses.get(index).setPrice(Price);
-		Main.Houses.get(index).setStudent_num(student_num);
+		Main.Houses.get(index).setStudentNum(student_num);
 		Main.Houses.get(index).setDetails(Details);
-		Main.Houses.get(index).setOwner_name(owner_name);
+		Main.Houses.get(index).setOwnerName(owner_name);
 		Main.Houses.get(index).setHouseFlag(HouseFlag);
 	}
 	

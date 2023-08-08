@@ -55,9 +55,7 @@ public void setEmail(String email) {
 
 public String  show_member() {
 	String h="The name is:"+name+ "| ID:"+ id + "| Email:" + email+"\n";
-	/*System.out.printf("The name is:%s | ",name);
-	System.out.printf("The id is:%s | ",id);
-	System.out.printf("The email is:%s  \n",email);*/
+	
 	return h;
 	
 }

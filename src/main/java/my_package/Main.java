@@ -200,7 +200,7 @@ public class Main {
 			{
 				for(int i=0;i<Houses.size();i++) {
 					logger.info("The Houses are:\r\n");
-					logger.info((i+1)+" Location: "+ Houses.get(i).Location+"\t"+" Details: "+ Houses.get(i).Details+"\t"+" Room number: "+ Houses.get(i).rooms_num+"\t"+" Student number: "+ Houses.get(i).student_num+"\t"+" Price: "+ Houses.get(i).Price+"\t"+" Owner name: "+ Houses.get(i).owner_name+"\t"+ Houses.get(i).HouseFlag+"\t"+"\n\r");
+					logger.info((i+1)+" Location: "+ Houses.get(i).location+"\t"+" Details: "+ Houses.get(i).details+"\t"+" Room number: "+ Houses.get(i).roomsNum+"\t"+" Student number: "+ Houses.get(i).studentNum+"\t"+" Price: "+ Houses.get(i).price+"\t"+" Owner name: "+ Houses.get(i).ownerName+"\t"+ Houses.get(i).houseFlag+"\t"+"\n\r");
 				}
 			}
 			break;
@@ -235,7 +235,7 @@ public class Main {
 					logger.info("choose the id of the house you want to delete\r\n");
 					for(int i=0;i<Houses.size();i++) {
 						
-						logger.info((i+1)+" ID: "+ Houses.get(i).id+"\t"+" Location: "+ Houses.get(i).Location+"\t"+" Details: "+ Houses.get(i).Details+"\t"+" Room number: "+ Houses.get(i).rooms_num+"\t"+" Student number: "+ Houses.get(i).student_num+"\t"+" Price: "+ Houses.get(i).Price+"\t"+" Owner name: "+ Houses.get(i).owner_name+"\t"+"\n\r");
+						logger.info((i+1)+" ID: "+ Houses.get(i).id+"\t"+" Location: "+ Houses.get(i).location+"\t"+" Details: "+ Houses.get(i).details+"\t"+" Room number: "+ Houses.get(i).roomsNum+"\t"+" Student number: "+ Houses.get(i).studentNum+"\t"+" Price: "+ Houses.get(i).price+"\t"+" Owner name: "+ Houses.get(i).ownerName+"\t"+"\n\r");
 					}
 					String ch=input.next();
 					boolean x=h2.delete_house(ch);
@@ -516,7 +516,7 @@ public class Main {
 					    
 					    if (targetHouse != null) {
 					    	logger.info("House ID: " + targetHouse.getId() +
-					                    ", Number of Students: " + targetHouse.getStudent_num());
+					                    ", Number of Students: " + targetHouse.getStudentNum());
 					    } else {
 					    	logger.info("House with ID " + houseId + " not found.");
 					    }
@@ -545,7 +545,7 @@ public class Main {
 						    if (targetHouse2 != null) {
 						       
 						      
-						    	logger.info("Number of Rooms: " + targetHouse2.getRooms_num());
+						    	logger.info("Number of Rooms: " + targetHouse2.getRoomsNum());
 						        
 						       
 						    	logger.info("Details: " + targetHouse2.getDetails());
@@ -625,12 +625,12 @@ public class Main {
 	 {logger.info("The Houses are:\r\n");
 		 for(int i=0;i<Houses.size();i++) {
 				
-				if(Houses.get(i).HouseFlag.equals("1")) {
-					logger.info((i)+" Location: "+ Houses.get(i).Location+"\t"+" Details: "+ Houses.get(i).Details+"\t"+" Room number: "+ Houses.get(i).rooms_num+"\t"+" Student number: "+ Houses.get(i).student_num+"\t"+" Price: "+ Houses.get(i).Price+"\t"+" Owner name: "+ Houses.get(i).owner_name+"\t" + "booked up"+"\t" +"\n\r");
+				if(Houses.get(i).houseFlag.equals("1")) {
+					logger.info((i)+" Location: "+ Houses.get(i).location+"\t"+" Details: "+ Houses.get(i).details+"\t"+" Room number: "+ Houses.get(i).roomsNum+"\t"+" Student number: "+ Houses.get(i).studentNum+"\t"+" Price: "+ Houses.get(i).price+"\t"+" Owner name: "+ Houses.get(i).ownerName+"\t" + "booked up"+"\t" +"\n\r");
 			}
-				else if (Houses.get(i).HouseFlag.equals("0"))
+				else if (Houses.get(i).houseFlag.equals("0"))
 				{
-					logger.info((i)+" Location: "+ Houses.get(i).Location+"\t"+" Details: "+ Houses.get(i).Details+"\t"+" Room number: "+ Houses.get(i).rooms_num+"\t"+" Student number: "+ Houses.get(i).student_num+"\t"+" Price: "+ Houses.get(i).Price+"\t"+" Owner name: "+ Houses.get(i).owner_name+"\t" + "available "+"\t" +"\n\r");
+					logger.info((i)+" Location: "+ Houses.get(i).location+"\t"+" Details: "+ Houses.get(i).details+"\t"+" Room number: "+ Houses.get(i).roomsNum+"\t"+" Student number: "+ Houses.get(i).studentNum+"\t"+" Price: "+ Houses.get(i).price+"\t"+" Owner name: "+ Houses.get(i).ownerName+"\t" + "available "+"\t" +"\n\r");
 				}
 				}
 		 TenantActivity();
@@ -641,14 +641,14 @@ public class Main {
 				TLocation=scanner.nextLine();
 				Tnum=0;
 		 for(int i=0;i<Houses.size();i++) {
-				if(Houses.get(i).Location.equals(TLocation)) {
-				if(Houses.get(i).HouseFlag.equals("0")) { 
+				if(Houses.get(i).location.equals(TLocation)) {
+				if(Houses.get(i).houseFlag.equals("0")) { 
                   Tnum=Tnum+1;
                   logger.info("done successfully\r\n");
-					 Houses.get(i).HouseFlag="1";
+					 Houses.get(i).houseFlag="1";
 					 TenantCpanel();
 				}
-				else if(Houses.get(i).HouseFlag.equals("1")) {
+				else if(Houses.get(i).houseFlag.equals("1")) {
 					logger.info("House is booked please try again \r\n");
 					 TenantBook();
 				}

@@ -6,79 +6,119 @@ public class House {
 		// TODO Auto-generated constructor stub
 	}
 	protected String id;
-	protected String Location;
-	protected int rooms_num;
-	protected int student_num;
-	protected String Details;
-	protected String Price;
-	protected String owner_name;
-	protected String HouseFlag;
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public int getRoomsNum() {
+		return roomsNum;
+	}
+
+	public void setRoomsNum(int roomsNum) {
+		this.roomsNum = roomsNum;
+	}
+
+	public int getStudentNum() {
+		return studentNum;
+	}
+
+	public void setStudentNum(int studentNum) {
+		this.studentNum = studentNum;
+	}
+
+	public String getDetails() {
+		return details;
+	}
+
+	public void setDetails(String details) {
+		this.details = details;
+	}
+
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+	public String getOwnerName() {
+		return ownerName;
+	}
+
+	public void setOwnerName(String ownerName) {
+		this.ownerName = ownerName;
+	}
+
+	public String getHouseFlag() {
+		return houseFlag;
+	}
+
+	public void setHouseFlag(String houseFlag) {
+		this.houseFlag = houseFlag;
+	}
+
+	public boolean isAddh() {
+		return addh;
+	}
+
+	public void setAddh(boolean addh) {
+		this.addh = addh;
+	}
+
+	public boolean isDeleteh() {
+		return deleteh;
+	}
+
+	public void setDeleteh(boolean deleteh) {
+		this.deleteh = deleteh;
+	}
+
+	public boolean isUpdateh() {
+		return updateh;
+	}
+
+	public void setUpdateh(boolean updateh) {
+		this.updateh = updateh;
+	}
+	protected String location;
+	protected int roomsNum;
+	protected int studentNum;
+	protected String details;
+	protected String price;
+	protected String ownerName;
+	protected String houseFlag;
 	boolean addh;
 	boolean deleteh; 
 	boolean updateh;
 	
 	
 
-public House(String id,String Location,int rooms_num,int student_num, String Details, String Price, String owner_name, String HouseFlag) {
+public House(String id,String location,int roomsNum,int studentNum, String details, String price, String ownerName, String houseFlag) {
 		super();
 		this.id=id;
-		this.Location = Location;
-		this.rooms_num = rooms_num;
-		this.student_num = student_num;
-		this.Details = Details;
-		this.Price=Price;
-		this.owner_name=owner_name;
-		this.HouseFlag=HouseFlag;
+		this.location = location;
+		this.roomsNum = roomsNum;
+		this.studentNum = studentNum;
+		this.details = details;
+		this.price=price;
+		this.ownerName=ownerName;
+		this.houseFlag=houseFlag;
 		
 	}
-public String getHouseFlag() {
-	return HouseFlag;
-}
-public void setHouseFlag(String houseFlag) {
-	HouseFlag = houseFlag;
-}
-public String getId() {
-	return id;
-}
-public void setId(String id) {
-	this.id = id;
-}
-public String getLocation() {
-	return Location;
-}
-public void setLocation(String location) {
-	Location = location;
-}
-public int getRooms_num() {
-	return rooms_num;
-}
-public void setRooms_num(int rooms_num) {
-	this.rooms_num = rooms_num;
-}
-public int getStudent_num() {
-	return student_num;
-}
-public void setStudent_num(int student_num) {
-	this.student_num = student_num;
-}
-public String getDetails() {
-	return Details;
-}
-public void setDetails(String details) {
-	Details = details;
-}
-public String getPrice() {
-	return Price;
-}
-public void setPrice(String price) {
-	Price = price;
-}
-public String getOwner_name() {
-	return owner_name;
-}
-public void setOwner_name(String owner_name) {
-	this.owner_name = owner_name;
-}
+
 public boolean add_house(String id,String Location,int rooms_num,int student_num, String Details, String Price, String owner_name,String HouseFlag) {
 	boolean add=true;
 	for(int i=0;i<Main.Houses.size();i++) {
@@ -109,10 +149,8 @@ public boolean  delete_house(String id) {
 	
 }
 public String  show_House() {
-	String h="The  owner name is:"+owner_name+ "| ID:"+ id + "| Location:" + Location+"| rooms num:" + rooms_num+"| student num:" + student_num+"| Details:" + Details+ "| HouseFlag:" + HouseFlag+"\n";
-	/*System.out.printf("The name is:%s | ",name);
-	System.out.printf("The id is:%s | ",id);
-	System.out.printf("The email is:%s  \n",email);*/
+	String h="The  owner name is:"+ownerName+ "| ID:"+ id + "| Location:" + location+"| rooms num:" + roomsNum+"| student num:" + studentNum+"| Details:" + details+ "| HouseFlag:" + houseFlag+"\n";
+	
 	return h;
 	
 }

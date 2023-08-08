@@ -3,10 +3,10 @@
   <groupId>Sakancom</groupId>
   <artifactId>Sakancom</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-	<properties>
+
   <sonar.organization>sakancoom</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-</properties>
+
   <dependencies>
 	  <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
 <dependency>

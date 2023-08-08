@@ -70,29 +70,7 @@ public class House {
 		this.houseFlag = houseFlag;
 	}
 
-	public boolean isAddh() {
-		return addh;
-	}
 
-	public void setAddh(boolean addh) {
-		this.addh = addh;
-	}
-
-	public boolean isDeleteh() {
-		return deleteh;
-	}
-
-	public void setDeleteh(boolean deleteh) {
-		this.deleteh = deleteh;
-	}
-
-	public boolean isUpdateh() {
-		return updateh;
-	}
-
-	public void setUpdateh(boolean updateh) {
-		this.updateh = updateh;
-	}
 	protected String location;
 	protected int roomsNum;
 	protected int studentNum;
@@ -100,9 +78,6 @@ public class House {
 	protected String price;
 	protected String ownerName;
 	protected String houseFlag;
-	boolean addh;
-	boolean deleteh; 
-	boolean updateh;
 	
 	
 
@@ -119,7 +94,7 @@ public House(String id,String location,int roomsNum,int studentNum, String detai
 		
 	}
 
-public boolean add_house(String id,String Location,int rooms_num,int student_num, String Details, String Price, String owner_name,String HouseFlag) {
+public boolean addHouse(String id,String location,int roomsNum,int studentNum, String details, String price, String ownerName,String houseFlag) {
 	boolean isAdd=true;
 	for(int i=0;i<Main.Houses.size();i++) {
 		if(id.equals(Main.Houses.get(i).id)) {
@@ -129,7 +104,7 @@ public boolean add_house(String id,String Location,int rooms_num,int student_num
 	}
 	if(isAdd==false)return false;
 	else {
-	House hh=new House(id,Location,rooms_num,student_num,Details,Price,owner_name,HouseFlag);
+	House hh=new House(id,location,roomsNum,studentNum,details,price,ownerName,houseFlag);
 	Main.Houses.add(hh);
 	return isAdd;
 	}

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.function.Supplier;
 import java.util.logging.Logger;
 
 
@@ -238,7 +237,7 @@ public class Main {
 						logger.info((i+1)+" ID: "+ Houses.get(i).id+"\t"+" Location: "+ Houses.get(i).location+"\t"+" Details: "+ Houses.get(i).details+"\t"+" Room number: "+ Houses.get(i).roomsNum+"\t"+" Student number: "+ Houses.get(i).studentNum+"\t"+" Price: "+ Houses.get(i).price+"\t"+" Owner name: "+ Houses.get(i).ownerName+"\t"+"\n\r");
 					}
 					String ch=input.next();
-					boolean x=h2.deleteHouse(ch);
+					boolean isDelete=h2.deleteHouse(ch);
 				}
 				if(op==2) {
 					logger.info("Please, fill the information of the house you want to add\n\r");
@@ -256,7 +255,7 @@ public class Main {
 					String price=input.next();
 					logger.info("\n\r Owner name:");
 					String ownerName=input.next();
-					h2.add_house(id, location, roomsNum, students, details, price, ownerName,"0");
+					h2.addHouse(id, location, roomsNum, students, details, price, ownerName,"0");
 				}
 			
 			}
@@ -618,7 +617,7 @@ public class Main {
 			}
 			
 			
-			
+			scanner.close();	
 	 }
 	  public static void Tenantview()
 
@@ -655,6 +654,7 @@ public class Main {
 				}
 				
 				}
+		 scanner.close();
 	 }
 	
 	 public static void TenantCpanel() {
@@ -679,7 +679,7 @@ public class Main {
 			}
 			TenantBook();	
 	
-			
+			scanner.close();
 		
 	
 	    }

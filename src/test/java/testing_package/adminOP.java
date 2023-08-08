@@ -84,7 +84,7 @@ public class adminOP {
 		Price = string6;
 		owner_name = string7;
 		HouseFlag=string8;
-		assertTrue(hhh.add_house(id,Location,rooms_num,student_num,Details,Price,owner_name,"0"));
+		assertTrue(hhh.addHouse(id,Location,rooms_num,student_num,Details,Price,owner_name,"0"));
 	}
 
 

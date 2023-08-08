@@ -68,7 +68,7 @@ public class requests {
 	    //throw new io.cucumber.java.PendingException();
 		//hhh=new House(id,Location,rooms_num,student_num,Details,Price,owner_name);
 		//Main.Houses.add(hhh);
-		assertTrue(hhh.add_house(id,Location,rooms_num,student_num,Details,Price,owner_name,"0"));
+		assertTrue(hhh.addHouse(id,Location,rooms_num,student_num,Details,Price,owner_name,"0"));
 		
 	}
 
@@ -106,7 +106,7 @@ public class requests {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
 		
-		accept=hhh.add_house(id,Location,rooms_num,student_num,Details,Price,owner_name,"0");
+		accept=hhh.addHouse(id,Location,rooms_num,student_num,Details,Price,owner_name,"0");
 		assertTrue(accept);
 	}
 

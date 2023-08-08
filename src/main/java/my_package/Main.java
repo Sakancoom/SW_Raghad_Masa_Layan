@@ -264,7 +264,7 @@ public class Main {
 			break;
 			case 6:
 			{
-				Report.generate_report();
+				Report.generateReport();
 				
 			}
 			break;

@@ -169,6 +169,7 @@ public class Main {
 	public static void adminActivities() {
 
 		int outt=0;
+		String format;
 		logger.info("Welcome"+namee+".\r\n What do you want?\r\n ");
 			while(outt==0) {
 				logger.info("1-Show the list of houses owners.\r\n"
@@ -184,16 +185,18 @@ public class Main {
 			case 1:
 			{
 				for(int i=0;i<Owners.size();i++) {
+					format=String.format("Name: %s   Email: %s  Phone: %s  \n\r", Owners.get(i).name,Owners.get(i).email,Owners.get(i).phoneNum);
 					logger.info("The owners are:\r\n");
-					logger.info((i+1)+" Name: "+ Owners.get(i).name+"\t"+" Email: "+ Owners.get(i).email+"\t"+ " Phone: "+ Owners.get(i).phoneNum+"\n\r");
+					logger.info(format);
 				}
 			}
 			break;
 			case 2:
 			{
 				for(int i=0;i<Tenants.size();i++) {
+					format=String.format("Name: %s   Email: %s  \n\r", Tenants.get(i).name,Tenants.get(i).email); 
 					logger.info("The Tenants are:\r\n");
-					logger.info((i+1)+" Name: "+ Tenants.get(i).name+"\t"+" Email: "+ Tenants.get(i).email+"\n\r");
+					logger.info(format);
 				}
 			}
 			break;
@@ -208,8 +211,10 @@ public class Main {
 			case 4:
 			{
 				for(int i=0;i<requests.size();i++) {
+					format=String.format("Location: %s  Details:%s Room number:%s Student number:%s  Price:%s Owner name:%s  \n\r", requests.get(i).location,requests.get(i).details,requests.get(i).roomsNum,requests.get(i).studentNum,requests.get(i).price,requests.get(i).ownerName); 
+				
 					logger.info("The pending requests are:\r\n");
-					logger.info((i+1)+"House id:"+requests.get(i).id+"\t"+" Location: "+ requests.get(i).location+"\t"+" Details: "+ requests.get(i).details+"\t"+" Room number: "+ requests.get(i).roomsNum+"\t"+" Student number: "+ requests.get(i).studentNum+"\t"+" Price: "+ requests.get(i).price+"\t"+" Owner name: "+ requests.get(i).ownerName+"\t"+"\n\r");
+					logger.info(format);
 					logger.info("\n\r Do you want to \n\r"
 							+ "1- accept this request, so add the house to the app.\n\r"
 							+ "2- reject the request\n\r ");
@@ -239,7 +244,13 @@ public class Main {
 						logger.info((i+1)+" ID: "+ Houses.get(i).id+"\t"+" Location: "+ Houses.get(i).location+"\t"+" Details: "+ Houses.get(i).details+"\t"+" Room number: "+ Houses.get(i).roomsNum+"\t"+" Student number: "+ Houses.get(i).studentNum+"\t"+" Price: "+ Houses.get(i).price+"\t"+" Owner name: "+ Houses.get(i).ownerName+"\t"+"\n\r");
 					}
 					String ch=input.next();
-					boolean isDelete=h2.deleteHouse(ch);
+					for(int y=0;y<Main.Houses.size();y++) {
+						if ((Main.Houses.get(y).id).equals(ch))
+						{
+							Main.Houses.remove(y);
+							
+						}
+					}
 				}
 				if(op==2) {
 					logger.info("Please, fill the information of the house you want to add\n\r");

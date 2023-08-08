@@ -183,35 +183,35 @@ public class Main {
 			int choice=input.nextInt();
 			switch(choice) {
 			case 1:
-			{
+			
 				for(int i=0;i<Owners.size();i++) {
 					format=String.format("Name: %s   Email: %s  Phone: %s  %n", Owners.get(i).name,Owners.get(i).email,Owners.get(i).phoneNum);
 					logger.info("The owners are:\r\n");
 					logger.info(format);
 				}
-			}
+			
 			break;
 			case 2:
-			{
+			
 				for(int i=0;i<Tenants.size();i++) {
 					format=String.format("Name: %s   Email: %s  %n", Tenants.get(i).name,Tenants.get(i).email); 
 					logger.info("The Tenants are:\r\n");
 					logger.info(format);
 				}
-			}
+			
 			break;
 			case 3:
-			{
+			
 				for(int i=0;i<Houses.size();i++) {
 					logger.info("The Houses are:\r\n");
 					format=String.format("Location: %s  Details:%s Room number:%s Student number:%s  Price:%s Owner name:%s  %n", Houses.get(i).location,Houses.get(i).details,Houses.get(i).roomsNum,Houses.get(i).studentNum,Houses.get(i).price,Houses.get(i).ownerName); 
 					logger.info(format);
 				
 				}
-			}
+			
 			break;
 			case 4:
-			{
+			
 				for(int i=0;i<requests.size();i++) {
 					format=String.format("Location: %s  Details:%s Room number:%s Student number:%s  Price:%s Owner name:%s  %n", requests.get(i).location,requests.get(i).details,requests.get(i).roomsNum,requests.get(i).studentNum,requests.get(i).price,requests.get(i).ownerName); 
 				
@@ -232,10 +232,10 @@ public class Main {
 					}
 				}
 				
-			}
+			
 			break;
 			case 5:
-			{
+			
 				logger.info("What do you want to do?\n\r 1-delete a house \n\r 2-add a house");
 				House h2=new House();
 				int op=input.nextInt();
@@ -275,18 +275,18 @@ public class Main {
 					h2.addHouse(id, location, roomsNum, students, details, price, ownerName,"0");
 				}
 			
-			}
+			
 			break;
 			case 6:
-			{
+			
 				Report.generateReport();
 				
-			}
+			
 			break;
 			case 7:
-			{
+			
 				start();
-			}
+			
 			break;
 			
 			default:adminActivities();

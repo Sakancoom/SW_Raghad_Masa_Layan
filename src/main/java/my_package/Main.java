@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 
 public class Main {
-	public static Scanner input=new Scanner(System.in);
+	public static final Scanner input=new Scanner(System.in);
 	public static final List <Admin>  Admins=new ArrayList<Admin> ();
 	public static final List <Owner>  Owners=new ArrayList<Owner> ();
 	public static final List <Tenant>  Tenants=new ArrayList<Tenant> ();
@@ -18,8 +18,8 @@ public class Main {
 	public static final Map <String,String> ads=new HashMap <String, String> ();
 	public static final Map <String,String> owns=new HashMap <String, String> ();
 
-	public static String namee;
-	public static String password;
+	protected static  String namee="";
+	protected static  String password="";
 	public static final  String INVALID="Invalid choice. Please try again.";
 	   
 
@@ -29,58 +29,58 @@ public class Main {
     
     protected static Logger logger;
     public static final String NOTE="The Username doesn't exist, please enter your Username again";
-    static String Temail; 
-	static String Tpass;
-	static String TLocation;
-	static int Tnum;	static int Tnum2; static int TOP;
+    static String tenantEmail; 
+	static String tenantPass;
+	static String tenantLocation;
+	static int tenantNum;	static int tenantNum2; static int tenantOp;
 	public static void main(String [] args) {
 		 logger = Logger.getLogger(Main.class.getName());
 
 		init();
 	 }
 	public static void init() {
-		Admin A1=new Admin("12345","pass1234","Raghad","raghad@gmail.com");
-		Admins.add(A1);
+		Admin a1=new Admin("12345","pass1234","Raghad","raghad@gmail.com");
+		Admins.add(a1);
 		ads.put("Raghad", "pass1234");
-		Owner O1=new Owner("223344","ahmad11","Ahmad","Ahmad@gmail.com","0599554828");
-		Owners.add(O1);
+		Owner o1=new Owner("223344","ahmad11","Ahmad","Ahmad@gmail.com","0599554828");
+		Owners.add(o1);
 		owns.put("Ahmad","ahmad11");
-		Owner O2=new Owner("234234","Masa22","Masa","Masa@gmail.com","0594678453");
-		Owners.add(O2);
+		Owner o2=new Owner("234234","Masa22","Masa","Masa@gmail.com","0594678453");
+		Owners.add(o2);
 		owns.put("Masa","Masa22");
-		Owner O3=new Owner("123123","Layan33","Layan","Layan@gmail.com","0598345762");
-		Owners.add(O3);
+		Owner o3=new Owner("123123","Layan33","Layan","Layan@gmail.com","0598345762");
+		Owners.add(o3);
 		owns.put("Layan","Layan33");
-		Tenant T1=new Tenant("2001","alaa200","Alaa","Alaa@gmail.com");
-		Tenants.add(T1);
-		Tenant T2=new Tenant("2002","Hiba99","Hiba","Hiba@gmail.com");
-		Tenants.add(T2);
-		Tenant T3=new Tenant("2002","Rania14","Rania","Rania.com");
-		Tenants.add(T3);
-		request r1=new request("234","Nablus",5,3,"with balkon","120","Ali");
+		Tenant t1=new Tenant("2001","alaa200","Alaa","Alaa@gmail.com");
+		Tenants.add(t1);
+		Tenant t2=new Tenant("2002","Hiba99","Hiba","Hiba@gmail.com");
+		Tenants.add(t2);
+		Tenant t3=new Tenant("2002","Rania14","Rania","Rania.com");
+		Tenants.add(t3);
+		request r1=new request("234","Nablus",5,3,"without balkon","120","Ali");
 		requests.add(r1);
-		request r2=new request("7484","Nablus",5,4,"with balkon","120","Ahmad");
+		request r2=new request("7484","Nablus",5,4,"Third floor","120","Rasem");
 		requests.add(r2);
 		House h1=new House("2033","RasAlain",4,3,"first floor","100","Layan Othman","1");
 		Houses.add(h1);
-		House h2=new House("2024","BaitWazan",6,4,"with balkon","130","lara ahmad","0");
+		House h2=new House("2024","BaitWazan",6,4,"With 4 bed rooms","130","lara ahmad","0");
 		Houses.add(h2);
 		
 		
 	start();	
 	}
 	public static void start() {
-		System.out.println("Welcome to S A K A N C O M :)\n\r");
-		System.out.println("Are you an:\n\r"
+		logger.info("Welcome to S A K A N C O M :)\n\r");
+		logger.info("Are you an:\n\r"
 				+ "1.Admin.\n\r"
 				+ "2.House Owner.\n\r"
 				+ "3.Tenant.\n\r");
 		int role=input.nextInt();
 		if(role==1) {
-			admin_login();
+			LoginAdmin();
 		}
 		else if(role==2) {
-			OwnerActivities();
+			LoginOwner();
 		}
 		else if(role==3) {
 			LoginTenant();
@@ -91,29 +91,29 @@ public class Main {
 		
 		
 	}
-	public static void admin_login() {
-		int nameFlag=0;
-		int passFlag=0;
+	public static void LoginAdmin() {
+		int isName=0;
+		int isPass=0;
 		logger.info("Enter your name:\r\n");
 		 namee=input.next();
 		 for(int i=0;i<ads.size();i++) {
 				if(Admins.get(i).getName().equalsIgnoreCase(namee)) {
-					//logger.info(LOGOUT);
-					nameFlag=1;
+					
+					isName=1;
 					break;
 				}
 				else {
 					logger.info("The user name is INVALID as an admin, please try again");
-					admin_login();
+					LoginAdmin();
 				}
 		 }
 		 
 		
-		 while(passFlag==0) {
+		 while(isPass==0) {
 			 logger.info("Enter your password:\r\n");
 			 password=input.next();
 				if(ads.get(namee).equalsIgnoreCase(password)) {
-					passFlag=1;
+					isPass=1;
 					break;
 				}
 				else {
@@ -123,33 +123,33 @@ public class Main {
 			
 			
 		}
-		if(nameFlag==1 && passFlag==1) {
+		if(isName==1 && isPass==1) {
 			AdminActivities();
 		}
 		
 	}
-	public static void owner_login() {
-		int nameFlag=0;
-		int passFlag=0;
+	public static void LoginOwner() {
+		int isName=0;
+		int isPass=0;
 		logger.info("Enter your name:\r\n");
 		 namee=input.next();
 		 for(int i=0;i<owns.size();i++) {
 				if(Owners.get(i).getName().equalsIgnoreCase(namee)) {
-					nameFlag=1;
+					isName=1;
 					break;
 				}
 				else {
 					logger.info("The user name is INVALID as an Owner, please try again");
-					admin_login();
+					LoginOwner();
 				}
 		 }
 		 
 		
-		 while(passFlag==0) {
+		 while(isPass==0) {
 			 logger.info("Enter your password:\r\n");
 			 password=input.next();
 				if(owns.get(namee).equalsIgnoreCase(password)) {
-					passFlag=1;
+					isPass=1;
 					break;
 				}
 				else {
@@ -159,7 +159,7 @@ public class Main {
 			
 			
 		}
-		if(nameFlag==1 && passFlag==1) {
+		if(isName==1 && isPass==1) {
 			OwnerActivities();
 		}
 		
@@ -584,16 +584,16 @@ public class Main {
 		 
 		 logger.info(" To log in to  S A K A N C O M enter  Your email and password \n\r"
 					+ "enter your email\n\r");
-			Temail=scanner.nextLine();
+		 tenantEmail=scanner.nextLine();
 			logger.info("enter your pass\n\r");
-			Tpass=scanner.nextLine();
-			Tnum2=0;
+			tenantPass=scanner.nextLine();
+			tenantNum2=0;
 			boolean isEmailFound = false;
 			for (int i = 0; i < Tenants.size(); i++) {
-			    if (Tenants.get(i).email.equalsIgnoreCase(Temail)) {
-			        if (Tenants.get(i).password.equalsIgnoreCase(Tpass)) {
+			    if (Tenants.get(i).email.equalsIgnoreCase(tenantEmail)) {
+			        if (Tenants.get(i).password.equalsIgnoreCase(tenantPass)) {
 			            flag = 1;
-			            Tnum2 = Tnum2 + 1;
+			            tenantNum2 = tenantNum2 + 1;
 			            isEmailFound = true;
 			            break;
 			        } else {
@@ -637,12 +637,12 @@ public class Main {
 	 public static void TenantBook() {
 		 Scanner scanner = new Scanner(System.in);
 		 logger.info("enter the Location u want:\r\n");
-				TLocation=scanner.nextLine();
-				Tnum=0;
+		 tenantLocation=scanner.nextLine();
+		 tenantNum=0;
 		 for(int i=0;i<Houses.size();i++) {
-				if(Houses.get(i).location.equals(TLocation)) {
+				if(Houses.get(i).location.equals(tenantLocation)) {
 				if(Houses.get(i).houseFlag.equals("0")) { 
-                  Tnum=Tnum+1;
+					tenantNum=tenantNum+1;
                   logger.info("done successfully\r\n");
 					 Houses.get(i).houseFlag="1";
 					 TenantCpanel();
@@ -658,8 +658,8 @@ public class Main {
 	 }
 	
 	 public static void TenantCpanel() {
-		 logger.info( Tenants.get(Tnum2).showMember()+ "\r\n");
-		 logger.info( Houses.get(Tnum).showHouse()+ "\r\n");
+		 logger.info( Tenants.get(tenantNum2).showMember()+ "\r\n");
+		 logger.info( Houses.get(tenantNum).showHouse()+ "\r\n");
 		 }
 	 
 	  public static void TenantActivity() {
@@ -670,11 +670,11 @@ public class Main {
 			
 		  logger.info( "If u want to Book an house enter 1 \n\r");
 			Scanner scanner = new Scanner(System.in);
-			TOP=scanner.nextInt();
-			while(!(TOP==1))
+			tenantOp=scanner.nextInt();
+			while(!(tenantOp==1))
 			{
 				logger.info( "input invalid  If u want to Book an house enter 1\n\r");
-				TOP=scanner.nextInt();
+				tenantOp=scanner.nextInt();
 				
 			}
 			TenantBook();	

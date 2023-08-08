@@ -111,7 +111,7 @@ public class Main {
 		 }
 		 
 		
-		 while(isPass==0) {
+		 while(isPass!=1) {
 			 logger.info("Enter your password:\r\n");
 			 password=input.next();
 				if(ads.get(namee).equalsIgnoreCase(password)) {
@@ -147,7 +147,7 @@ public class Main {
 		 }
 		 
 		
-		 while(isPass==0) {
+		 while(isPass!=1) {
 			 logger.info("Enter your password:\r\n");
 			 password=input.next();
 				if(owns.get(namee).equalsIgnoreCase(password)) {

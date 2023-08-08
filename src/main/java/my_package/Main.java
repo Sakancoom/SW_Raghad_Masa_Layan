@@ -317,15 +317,16 @@ public class Main {
 				int choice;
 				
 				choice=input.nextInt();
-				
+				String f3;
 
 				switch(choice) {
 					case 1:
 						
 						
 						for(int i=0;i<Houses.size();i++) {
+							f3=String.format("%s   %s %n",Houses.get(i).id , Houses.get(i).getLocation());
 
-							logger.info(Houses.get(i).id+"    "+ Houses.get(i).getLocation()+ "\r\n");
+							logger.info(f3);
 						}
 						break;
 							

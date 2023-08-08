@@ -170,7 +170,8 @@ public class Main {
 
 		int outt=0;
 		String format;
-		logger.info("Welcome"+namee+".\r\n What do you want?\r\n ");
+		format=String.format("Welcome Admin %s.%n What do you want?%n ", namee);
+		logger.info(format);
 			while(outt==0) {
 				logger.info("1-Show the list of houses owners.\r\n"
 					+ "2-Show the list of the application users.\r\n"

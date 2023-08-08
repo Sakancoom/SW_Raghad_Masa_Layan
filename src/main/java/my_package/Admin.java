@@ -6,7 +6,7 @@ package my_package;
 public class Admin {
 	public Admin() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	protected String id;
 	protected String password;
@@ -57,10 +57,10 @@ public void setEmail(String email) {
 
 
 
-public String  show_member() {
-	String h="The name is:"+name+ "| ID:"+ id + "| Email:" + email+"\n";
+public String  showMember() {
 	
-	return h;
+	
+	return "The name is:"+name+ "| ID:"+ id + "| Email:" + email+"\n";
 	
 }
 

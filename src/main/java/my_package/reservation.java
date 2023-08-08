@@ -2,28 +2,24 @@ package my_package;
 
 public class reservation {
 
-	public reservation(String owner_name, String user_name, House h1) {
+	public reservation(String ownerName, String userName, House h1) {
 		super();
-		this.Owner_name = owner_name;
-		this.User_name = user_name;
+		this.ownerName = ownerName;
+		this.userName = userName;
 		this.h1 = h1;
 	}
-	protected String Owner_name;
-	protected String User_name;
-	protected House h1;
-	
-	
-	public String getOwner_name() {
-		return Owner_name;
+	protected String ownerName;
+	public String getOwnerName() {
+		return ownerName;
 	}
-	public void setOwner_name(String owner_name) {
-		Owner_name = owner_name;
+	public void setOwnerName(String ownerName) {
+		this.ownerName = ownerName;
 	}
-	public String getUser_name() {
-		return User_name;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUser_name(String user_name) {
-		User_name = user_name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public House getH1() {
 		return h1;
@@ -31,5 +27,10 @@ public class reservation {
 	public void setH1(House h1) {
 		this.h1 = h1;
 	}
+	protected String userName;
+	protected House h1;
+	
+	
+	
 	
 }

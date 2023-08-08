@@ -149,9 +149,8 @@ public boolean  delete_house(String id) {
 	
 }
 public String  show_House() {
-	String h="The  owner name is:"+ownerName+ "| ID:"+ id + "| Location:" + location+"| rooms num:" + roomsNum+"| student num:" + studentNum+"| Details:" + details+ "| HouseFlag:" + houseFlag+"\n";
 	
-	return h;
+	return "The  owner name is:"+ownerName+ "| ID:"+ id + "| Location:" + location+"| rooms num:" + roomsNum+"| student num:" + studentNum+"| Details:" + details+ "| HouseFlag:" + houseFlag+"\n";
 	
 }
 

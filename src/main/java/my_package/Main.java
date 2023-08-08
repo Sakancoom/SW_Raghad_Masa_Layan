@@ -208,13 +208,13 @@ public class Main {
 			{
 				for(int i=0;i<requests.size();i++) {
 					logger.info("The pending requests are:\r\n");
-					logger.info((i+1)+"House id:"+requests.get(i).id+"\t"+" Location: "+ requests.get(i).Location+"\t"+" Details: "+ requests.get(i).Details+"\t"+" Room number: "+ requests.get(i).rooms_num+"\t"+" Student number: "+ requests.get(i).student_num+"\t"+" Price: "+ requests.get(i).Price+"\t"+" Owner name: "+ requests.get(i).owner_name+"\t"+"\n\r");
+					logger.info((i+1)+"House id:"+requests.get(i).id+"\t"+" Location: "+ requests.get(i).location+"\t"+" Details: "+ requests.get(i).details+"\t"+" Room number: "+ requests.get(i).roomsNum+"\t"+" Student number: "+ requests.get(i).studentNum+"\t"+" Price: "+ requests.get(i).price+"\t"+" Owner name: "+ requests.get(i).ownerName+"\t"+"\n\r");
 					logger.info("\n\r Do you want to \n\r"
 							+ "1- accept this request, so add the house to the app.\n\r"
 							+ "2- reject the request\n\r ");
 					int acc=input.nextInt();
 					if(acc==1) {
-						House hh=new House(requests.get(i).id,requests.get(i).Location,requests.get(i).rooms_num,requests.get(i).student_num,requests.get(i).Details,requests.get(i).Price,requests.get(i).owner_name,"0");
+						House hh=new House(requests.get(i).id,requests.get(i).location,requests.get(i).roomsNum,requests.get(i).studentNum,requests.get(i).details,requests.get(i).price,requests.get(i).ownerName,"0");
 						Houses.add(hh);
 						logger.info("\n\r The house added successfuly \n\r");
 						
@@ -658,7 +658,7 @@ public class Main {
 	 }
 	
 	 public static void TenantCpanel() {
-		 logger.info( Tenants.get(Tnum2).show_member()+ "\r\n");
+		 logger.info( Tenants.get(Tnum2).showMember()+ "\r\n");
 		 logger.info( Houses.get(Tnum).show_House()+ "\r\n");
 		 }
 	 

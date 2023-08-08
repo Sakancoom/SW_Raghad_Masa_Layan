@@ -178,8 +178,7 @@ public class Main {
 					+ "4-Show the request of adding houses from the owners.\r\n"
 					+ "5-Modify existing houses info.\r\n"
 					+ "6-Show A REPORT about all reservations via the app.\r\n"
-					+ "7-Check for any sent emails from users or owners.\r\n"
-					+"8-Log Out\r\n");
+					+"7-Log Out\r\n");
 			int choice=input.nextInt();
 			switch(choice) {
 			case 1:
@@ -211,7 +210,7 @@ public class Main {
 			case 4:
 			{
 				for(int i=0;i<requests.size();i++) {
-					format=String.format("Location: %s  Details:%s Room number:%s Student number:%s  Price:%s Owner name:%s  \n\r", requests.get(i).location,requests.get(i).details,requests.get(i).roomsNum,requests.get(i).studentNum,requests.get(i).price,requests.get(i).ownerName); 
+					format=String.format("Location: %s  Details:%s Room number:%s Student number:%s  Price:%s Owner name:%s  %n", requests.get(i).location,requests.get(i).details,requests.get(i).roomsNum,requests.get(i).studentNum,requests.get(i).price,requests.get(i).ownerName); 
 				
 					logger.info("The pending requests are:\r\n");
 					logger.info(format);
@@ -281,15 +280,10 @@ public class Main {
 			break;
 			case 7:
 			{
-				
-			}
-			break;
-			case 8:
-			{
-				
 				start();
 			}
 			break;
+			
 			default:adminActivities();
 			}
 			}
@@ -301,10 +295,7 @@ public class Main {
     int outt=0;
     	while(outt==0) {
 			
-			
-    		
-			
-			
+	
     		logger.info("\n Welcome to the Controlpanel for housing plz enter show houses!\r\n"
 					+"--------------------------------------------------"
 					+"Please select an option from the following menu:\r\n"
@@ -527,10 +518,7 @@ public class Main {
 		                
 		            	
 					case 6:
-						
-						
-						
-						
+					
 						  Scanner id4 = new Scanner(System.in);
 						  logger.info("Enter the house ID to show more details:");
 						    String houseId2 = id4.next();
@@ -561,9 +549,9 @@ public class Main {
 					case 7:
 						
 				
-				
+				start();
+				break;
 
-		         
 					case 8:
 						System.exit(0);
 		            	break;

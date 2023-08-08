@@ -97,12 +97,7 @@ public class adminOP {
 
 	
 
-	@Then("the information for a house was updated")
-	public void theInformationForAHouseWasUpdated() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
-		assertTrue(true);
-	}
+	
 
 	@Given("that you want to delete a house whose id {string},Location {string},rooms_num {string}, student_num {string},Details {string}, Price {string}, Owner {string},HouseFlag {string}")
 	public void thatYouWantToDeleteAHouseWhoseIdLocationRoomsNumStudentNumDetailsPriceOwner(String string, String string2, String string3, String string4, String string5, String string6, String string7,String string8) {

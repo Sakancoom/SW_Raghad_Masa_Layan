@@ -6,6 +6,7 @@ import io.cucumber.java.en.*;
 import my_package.*;
 public class logging_admin {
 
+	Main m;
 	String name;
 	String id;
 	String email;
@@ -20,6 +21,7 @@ public class logging_admin {
 		email="raghadmatar2002@gmail.com";
 		g.password="pass1234";
 		ad=new Admin(id,name,"pass1234",email);
+		m=new Main();
 		Main.Admins.add(ad);
 		
 	}
@@ -44,6 +46,7 @@ public class logging_admin {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
 		assertTrue(g.login(pass));
+		
 	}
 
 	@Then("the admin is logged in")
@@ -51,6 +54,7 @@ public class logging_admin {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
 		assertTrue(g.getLogState());
+		
 	}
 
 	@Then("the login operation fails")

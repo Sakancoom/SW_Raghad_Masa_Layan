@@ -7,6 +7,7 @@ import my_package.*;
 public class reservation {
 
 	Logging log;
+	Report r;
 	boolean clicked=false;
 	public reservation() {
 		log=new Logging();
@@ -25,7 +26,9 @@ public class reservation {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
 		if(string.equals("Generate Report"))
-	    	clicked=true;
+	    	//clicked=true;
+			r.generateReport();
+		clicked=true;
 	}
 
 	@Then("the system generates and displays the customized report")

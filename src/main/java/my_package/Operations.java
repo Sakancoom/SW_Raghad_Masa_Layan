@@ -4,7 +4,7 @@ package my_package;
 public class Operations {
 	
 	
-	private Operations() {
+	public Operations() {
 		
 	}
 	

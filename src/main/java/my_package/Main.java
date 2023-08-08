@@ -136,7 +136,7 @@ public class Main {
 		logger.info("Enter your name:\r\n");
 		 namee=input.next();
 		 for(int i=0;i<owns.size();i++) {
-				if(Owners.get(i).getName().equalsIgnoreCase(namee)) {
+				if(Owners.get(i).name.equalsIgnoreCase(namee)) {
 					isName=1;
 					break;
 				}
@@ -309,7 +309,7 @@ public class Main {
 					+"3.Update an existing house \r\n"
 					+"4.delete house \r\n"
 					+"5.Please enter the id of the house that you want to know it's number of students(tenant)\r\n"
-					+"6.Show more details of specific house \r\n"
+					+"6.Show more details of specific house \r\n"
 					+"7.LogOut\r\n"
 					+"8.Quit\r\n"
 					+"Enter the number of the activity you want to perform:\r\n");
@@ -325,7 +325,7 @@ public class Main {
 						
 						for(int i=0;i<Houses.size();i++) {
 
-							logger.info(Houses.get(i).getId()+"    "+ Houses.get(i).getLocation()+ "\r\n");
+							logger.info(Houses.get(i).id+"    "+ Houses.get(i).getLocation()+ "\r\n");
 						}
 						break;
 							

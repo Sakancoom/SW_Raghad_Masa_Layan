@@ -203,7 +203,9 @@ public class Main {
 			{
 				for(int i=0;i<Houses.size();i++) {
 					logger.info("The Houses are:\r\n");
-					logger.info((i+1)+" Location: "+ Houses.get(i).location+"\t"+" Details: "+ Houses.get(i).details+"\t"+" Room number: "+ Houses.get(i).roomsNum+"\t"+" Student number: "+ Houses.get(i).studentNum+"\t"+" Price: "+ Houses.get(i).price+"\t"+" Owner name: "+ Houses.get(i).ownerName+"\t"+ Houses.get(i).houseFlag+"\t"+"\n\r");
+					format=String.format("Location: %s  Details:%s Room number:%s Student number:%s  Price:%s Owner name:%s  %n", Houses.get(i).location,Houses.get(i).details,Houses.get(i).roomsNum,Houses.get(i).studentNum,Houses.get(i).price,Houses.get(i).ownerName); 
+					logger.info(format);
+				
 				}
 			}
 			break;
@@ -609,15 +611,21 @@ public class Main {
 	 }
 	  public static void tenantView()
 
-	 {logger.info("The Houses are:\r\n");
+	 {
+		  String ff;
+		  logger.info("The Houses are:\r\n");
 		 for(int i=0;i<Houses.size();i++) {
 				
 				if(Houses.get(i).houseFlag.equals("1")) {
-					logger.info((i)+" Location: "+ Houses.get(i).location+"\t"+" Details: "+ Houses.get(i).details+"\t"+" Room number: "+ Houses.get(i).roomsNum+"\t"+" Student number: "+ Houses.get(i).studentNum+"\t"+" Price: "+ Houses.get(i).price+"\t"+" Owner name: "+ Houses.get(i).ownerName+"\t" + "booked up"+"\t" +"\n\r");
-			}
+					
+					ff=String.format("Location: %s  Details:%s Room number:%s Student number:%s  Price:%s Owner name:%s  booked up %n", Houses.get(i).location,Houses.get(i).details,Houses.get(i).roomsNum,Houses.get(i).studentNum,Houses.get(i).price,Houses.get(i).ownerName); 
+					logger.info(ff);
+					}
 				else if (Houses.get(i).houseFlag.equals("0"))
 				{
-					logger.info((i)+" Location: "+ Houses.get(i).location+"\t"+" Details: "+ Houses.get(i).details+"\t"+" Room number: "+ Houses.get(i).roomsNum+"\t"+" Student number: "+ Houses.get(i).studentNum+"\t"+" Price: "+ Houses.get(i).price+"\t"+" Owner name: "+ Houses.get(i).ownerName+"\t" + "available "+"\t" +"\n\r");
+					ff=String.format("Location: %s  Details:%s Room number:%s Student number:%s  Price:%s Owner name:%s  Available %n", Houses.get(i).location,Houses.get(i).details,Houses.get(i).roomsNum,Houses.get(i).studentNum,Houses.get(i).price,Houses.get(i).ownerName); 
+					logger.info(ff);
+				
 				}
 				}
 		 tenantActivity();
@@ -646,8 +654,10 @@ public class Main {
 	 }
 	
 	 public static void tenantCpanel() {
-		 logger.info( Tenants.get(tenantNum2).showMember()+ "\r\n");
-		 logger.info( Houses.get(tenantNum).showHouse()+ "\r\n");
+		 String f1= String.format("% s   %n", Tenants.get(tenantNum2).showMember());
+		 String f2= String.format("% s   %n", Tenants.get(tenantNum).showMember());
+		 logger.info( f1);
+		 logger.info( f2);
 		 }
 	 
 	  public static void tenantActivity() {

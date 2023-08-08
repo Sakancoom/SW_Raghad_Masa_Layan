@@ -32,7 +32,9 @@ public class Main {
     static String tenantEmail; 
 	static String tenantPass;
 	static String tenantLocation;
-	static int tenantNum;	static int tenantNum2; static int tenantOp;
+	static int tenantNum;
+	static int tenantNum2;
+	static int tenantOp;
 	public static void main(String [] args) {
 		 logger = Logger.getLogger(Main.class.getName());
 
@@ -77,13 +79,13 @@ public class Main {
 				+ "3.Tenant.\n\r");
 		int role=input.nextInt();
 		if(role==1) {
-			LoginAdmin();
+			loginAdmin();
 		}
 		else if(role==2) {
-			LoginOwner();
+			loginOwner();
 		}
 		else if(role==3) {
-			LoginTenant();
+			loginTenant();
 		}
 		else {
 			start();
@@ -91,7 +93,7 @@ public class Main {
 		
 		
 	}
-	public static void LoginAdmin() {
+	public static void loginAdmin() {
 		int isName=0;
 		int isPass=0;
 		logger.info("Enter your name:\r\n");
@@ -104,7 +106,7 @@ public class Main {
 				}
 				else {
 					logger.info("The user name is INVALID as an admin, please try again");
-					LoginAdmin();
+					loginAdmin();
 				}
 		 }
 		 
@@ -124,11 +126,11 @@ public class Main {
 			
 		}
 		if(isName==1 && isPass==1) {
-			AdminActivities();
+			adminActivities();
 		}
 		
 	}
-	public static void LoginOwner() {
+	public static void loginOwner() {
 		int isName=0;
 		int isPass=0;
 		logger.info("Enter your name:\r\n");
@@ -140,7 +142,7 @@ public class Main {
 				}
 				else {
 					logger.info("The user name is INVALID as an Owner, please try again");
-					LoginOwner();
+					loginOwner();
 				}
 		 }
 		 
@@ -160,11 +162,11 @@ public class Main {
 			
 		}
 		if(isName==1 && isPass==1) {
-			OwnerActivities();
+			ownerActivities();
 		}
 		
 	}
-	public static void AdminActivities() {
+	public static void adminActivities() {
 
 		int outt=0;
 		logger.info("Welcome"+namee+".\r\n What do you want?\r\n ");
@@ -277,14 +279,14 @@ public class Main {
 				start();
 			}
 			break;
-			default:AdminActivities();
+			default:adminActivities();
 			}
 			}
 			
 		
 	
 	}
-    public static void OwnerActivities() {
+    public static void ownerActivities() {
     int outt=0;
     	while(outt==0) {
 			
@@ -572,12 +574,12 @@ public class Main {
 		
 				}}
 	}
-    public static void TenantActivities() {
+    public static void tenantActivities() {
 		
 	}
     
 	
-	 public  static void LoginTenant()
+	 public  static void loginTenant()
 	 {
 		 Scanner scanner = new Scanner(System.in);
 		 int flag=0;
@@ -598,28 +600,28 @@ public class Main {
 			            break;
 			        } else {
 			        	logger.info("The password is incorrect, please try again");
-			            LoginTenant(); 
+			            loginTenant(); 
 			        }
 			    }
 			}
 
 			if (!isEmailFound) {
 				logger.info("The email is INVALID, please try again");
-			    LoginTenant(); 
+			    loginTenant(); 
 			}
 
 				
 			
 			if (flag==1)
 			{
-				Tenantview();
+				tenantView();
 				
 			}
 			
 			
 			scanner.close();	
 	 }
-	  public static void Tenantview()
+	  public static void tenantView()
 
 	 {logger.info("The Houses are:\r\n");
 		 for(int i=0;i<Houses.size();i++) {
@@ -632,9 +634,9 @@ public class Main {
 					logger.info((i)+" Location: "+ Houses.get(i).location+"\t"+" Details: "+ Houses.get(i).details+"\t"+" Room number: "+ Houses.get(i).roomsNum+"\t"+" Student number: "+ Houses.get(i).studentNum+"\t"+" Price: "+ Houses.get(i).price+"\t"+" Owner name: "+ Houses.get(i).ownerName+"\t" + "available "+"\t" +"\n\r");
 				}
 				}
-		 TenantActivity();
+		 tenantActivity();
 				}
-	 public static void TenantBook() {
+	 public static void tenantBook() {
 		 Scanner scanner = new Scanner(System.in);
 		 logger.info("enter the Location u want:\r\n");
 		 tenantLocation=scanner.nextLine();
@@ -645,11 +647,11 @@ public class Main {
 					tenantNum=tenantNum+1;
                   logger.info("done successfully\r\n");
 					 Houses.get(i).houseFlag="1";
-					 TenantCpanel();
+					 tenantCpanel();
 				}
 				else if(Houses.get(i).houseFlag.equals("1")) {
 					logger.info("House is booked please try again \r\n");
-					 TenantBook();
+					 tenantBook();
 				}
 				}
 				
@@ -657,12 +659,12 @@ public class Main {
 		 scanner.close();
 	 }
 	
-	 public static void TenantCpanel() {
+	 public static void tenantCpanel() {
 		 logger.info( Tenants.get(tenantNum2).showMember()+ "\r\n");
 		 logger.info( Houses.get(tenantNum).showHouse()+ "\r\n");
 		 }
 	 
-	  public static void TenantActivity() {
+	  public static void tenantActivity() {
 			
 			
 			
@@ -677,7 +679,7 @@ public class Main {
 				tenantOp=scanner.nextInt();
 				
 			}
-			TenantBook();	
+			tenantBook();	
 	
 			scanner.close();
 		

@@ -102,7 +102,7 @@ public boolean addHouse(String id,String location,int roomsNum,int studentNum, S
 			break;
 		}
 	}
-	if(isAdd==false)return false;
+	if(!isAdd)return false;
 	else {
 	House hh=new House(id,location,roomsNum,studentNum,details,price,ownerName,houseFlag);
 	Main.Houses.add(hh);

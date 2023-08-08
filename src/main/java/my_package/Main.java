@@ -38,13 +38,11 @@ public class Main {
 		 logger = Logger.getLogger(Main.class.getName());
 
 		init();
-		 
 	 }
 	public static void init() {
 		Admin A1=new Admin("12345","pass1234","Raghad","raghad@gmail.com");
 		Admins.add(A1);
 		ads.put("Raghad", "pass1234");
-		
 		Owner O1=new Owner("223344","ahmad11","Ahmad","Ahmad@gmail.com","0599554828");
 		Owners.add(O1);
 		owns.put("Ahmad","ahmad11");

@@ -19,7 +19,7 @@ public class Main {
 	public static final Map <String,String> owns=new HashMap <String, String> ();
 
 	protected static  String namee="";
-	protected static  String password="";
+	private static  String password="";
 	public static final  String INVALID="Invalid choice. Please try again.";
 	   
 
@@ -309,9 +309,9 @@ public class Main {
 					+"3.Update an existing house \r\n"
 					+"4.delete house \r\n"
 					+"5.Please enter the id of the house that you want to know it's number of students(tenant)\r\n"
-					+"6. Show more details of specific house \r\n"
-					+"7. LogOut\r\n"
-					+"8. Quit\r\n"
+					+"6.Show more details of specific house \r\n"
+					+"7.LogOut\r\n"
+					+"8.Quit\r\n"
 					+"Enter the number of the activity you want to perform:\r\n");
 					
 				int choice;

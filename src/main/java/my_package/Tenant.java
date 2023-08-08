@@ -60,8 +60,8 @@ public String  showMember() {
 }
 public int checkbill(int n1,int m1)
 {
-	int bil=n1*m1;
-	return bil;
+	
+	return n1*m1;
 
 }
 

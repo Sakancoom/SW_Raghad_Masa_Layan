@@ -36,17 +36,7 @@ Then you delete all informations of the house
 #And owner is logged in oor the admin is logged in
 #When its price "2500"
 #Then the information for a house was updatedd
-#Scenario: Update a house information
-#Given that you want to update the student_num to "4"  , Price "120"
-#And admin is logged in 
-#When his own ID "41"
-#Then the information for a house was updated
-#
-#
-#Scenario: Update a house information fails
-#Given that you want to update the student_num to "4"  , Price "120"
-#And admin is logged in
-#Then the house you want to update his information does not exist
+
 
 
 

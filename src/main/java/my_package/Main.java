@@ -517,7 +517,9 @@ public class Main {
 					    	logger.info("House ID: " + targetHouse.getId() +
 					                    ", Number of Students: " + targetHouse.getStudentNum());
 					    } else {
-					    	logger.info("House with ID " + houseId + " not found.");
+					    	String format=String.format("House with ID %s  not found.", houseId);
+					    	logger.info(format);
+					    
 					    }
 					    break;
 						
@@ -549,7 +551,8 @@ public class Main {
 						    	logger.info("Price: " + targetHouse2.getPrice());
 						      
 						    } else {
-						    	logger.info("House with ID " + houseId2 + " not found.");
+						    	String format=String.format("House with ID %s  not found.", houseId2);
+						    	logger.info(format);
 						    }
 						    break;
 						

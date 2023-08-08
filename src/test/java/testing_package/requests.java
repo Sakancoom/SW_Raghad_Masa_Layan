@@ -6,7 +6,7 @@ import io.cucumber.java.en.*;
 import my_package.*;
 public class requests {
 	Logging log;
-	request r;
+	Request r;
 	House hhh;
 	String id,Location;
 	int rooms_num;
@@ -15,7 +15,7 @@ public class requests {
 	boolean accept=true;
 	//boolean reject=true;
 	public requests() {
-		r=new request(id,Location,rooms_num,student_num,Details,Price,owner_name);
+		r=new Request(id,Location,rooms_num,student_num,Details,Price,owner_name);
 		log=new Logging();
 		hhh=new House(id,Location,rooms_num,student_num,Details,Price,owner_name,"0");
 	}
@@ -43,7 +43,7 @@ public class requests {
 			Details = dataTable.cell(i,4);
 			Price = dataTable.cell(i,5);
 			owner_name = dataTable.cell(i,6);
-			r=new request(id,Location,rooms_num,student_num,Details,Price,owner_name);
+			r=new Request(id,Location,rooms_num,student_num,Details,Price,owner_name);
 			Main.requests.add(r);
 			}
 	}

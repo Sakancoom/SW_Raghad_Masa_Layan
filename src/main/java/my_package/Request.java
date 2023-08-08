@@ -1,8 +1,8 @@
 package my_package;
 
-public class request {
+public class Request {
 	
-	public request() {
+	public Request() {
 		super();
 		
 	}
@@ -16,7 +16,7 @@ public class request {
 	protected String ownerName;
 	
 
-public request(String id,String location,int roomsNum,int studentNum, String details, String price, String ownerName) {
+public Request(String id,String location,int roomsNum,int studentNum, String details, String price, String ownerName) {
 		super();
 		this.id=id;
 		this.location = location;

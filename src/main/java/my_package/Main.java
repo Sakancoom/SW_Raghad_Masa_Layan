@@ -12,9 +12,9 @@ public class Main {
 	public static final List <Admin>  Admins=new ArrayList<Admin> ();
 	public static final List <Owner>  Owners=new ArrayList<Owner> ();
 	public static final List <Tenant>  Tenants=new ArrayList<Tenant> ();
-	public static final List <reservation> reservations =new ArrayList<reservation> ();
+	public static final List <Reservation> reservations =new ArrayList<Reservation> ();
 	public static final List <House>  Houses=new ArrayList<House> ();
-	public static final List <request>  requests=new ArrayList<request> ();
+	public static final List <Request>  requests=new ArrayList<Request> ();
 	public static final Map <String,String> ads=new HashMap <String, String> ();
 	public static final Map <String,String> owns=new HashMap <String, String> ();
 
@@ -59,9 +59,9 @@ public class Main {
 		Tenants.add(t2);
 		Tenant t3=new Tenant("2002","Rania14","Rania","Rania.com");
 		Tenants.add(t3);
-		request r1=new request("234","Nablus",5,3,"without balkon","120","Ali");
+		Request r1=new Request("234","Nablus",5,3,"without balkon","120","Ali");
 		requests.add(r1);
-		request r2=new request("7484","Nablus",5,4,"Third floor","120","Rasem");
+		Request r2=new Request("7484","Nablus",5,4,"Third floor","120","Rasem");
 		requests.add(r2);
 		House h1=new House("2033","RasAlain",4,3,"first floor","100","Layan Othman","1");
 		Houses.add(h1);
@@ -264,7 +264,7 @@ public class Main {
 			break;
 			case 6:
 			{
-				report.generate_report();
+				Report.generate_report();
 				
 			}
 			break;

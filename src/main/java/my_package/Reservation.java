@@ -1,8 +1,8 @@
 package my_package;
 
-public class reservation {
+public class Reservation {
 
-	public reservation(String ownerName, String userName, House h1) {
+	public Reservation(String ownerName, String userName, House h1) {
 		super();
 		this.ownerName = ownerName;
 		this.userName = userName;

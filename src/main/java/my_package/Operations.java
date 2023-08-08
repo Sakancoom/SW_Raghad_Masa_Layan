@@ -9,7 +9,7 @@ public class Operations {
 	}
 	
 	
-	// add house 
+
 
 public static boolean addH(House h) {
 	boolean add=true;
@@ -29,7 +29,7 @@ public static boolean addH(House h) {
 			}
 	if(add) {
 		Main.Houses.add(h);
-		//House.totalpr();
+
 	}
 	return add;
 }
@@ -49,9 +49,7 @@ public static boolean deleteH(House h) {
 					&& (Main.Houses.get(i).getStudentNum()==h.getStudentNum()) 
 					&& (Main.Houses.get(i).getDetails().equals(h.getDetails())) 
 					&& (Main.Houses.get(i).getPrice().equals(h.getPrice())) 
-
 					&& (Main.Houses.get(i).getOwnerName().equals(h.getOwnerName())))
-				
 				
 					{
 				    index=i;
@@ -61,7 +59,7 @@ public static boolean deleteH(House h) {
 				}
 		if(!delete) {
 			Main.Houses.remove(index);	
-			//Statistics.totalpro();
+			
 		}
 	 return delete;
 }
@@ -69,33 +67,33 @@ public static boolean deleteH(House h) {
 //update the house 
 
 
-public static boolean updateH(String idd,String House_id,String Location,int rooms_num,int student_num, String Details, String Price, String owner_name,String HouseFlag) {
-	boolean update=true;
+public static boolean updateH(String id,String houseId,String location,int roomsNum,int studentNum, String details, String price, String ownerName,String houseFlag) {
+	boolean isUpdate=true;
 	int index=-1;
 	for(int i=0; i< Main.Houses.size() ; i++) {
-		if((Main.Houses.get(i).getId().equals(idd)))
+		if((Main.Houses.get(i).getId().equals(id)))
 				{
 			    index=i;
-			    update = false;
+			    isUpdate = false;
 				break;
 				}
 			}
-	if(!update) {
-		//1
-		//House.getH().get(index).setHouse_id(idd);
-		Main.Houses.get(index).setId(House_id);
-		Main.Houses.get(index).setLocation(Location);
-		Main.Houses.get(index).setRoomsNum(rooms_num);
-		Main.Houses.get(index).setPrice(Price);
-		Main.Houses.get(index).setStudentNum(student_num);
-		Main.Houses.get(index).setDetails(Details);
-		Main.Houses.get(index).setOwnerName(owner_name);
-		Main.Houses.get(index).setHouseFlag(HouseFlag);
+	if(!isUpdate) {
+		
+		
+		Main.Houses.get(index).setId(houseId);
+		Main.Houses.get(index).setLocation(location);
+		Main.Houses.get(index).setRoomsNum(roomsNum);
+		Main.Houses.get(index).setPrice(price);
+		Main.Houses.get(index).setStudentNum(studentNum);
+		Main.Houses.get(index).setDetails(details);
+		Main.Houses.get(index).setOwnerName(ownerName);
+		Main.Houses.get(index).setHouseFlag(houseFlag);
 	}
 	
 
 
-	return update;
+	return isUpdate;
 }
 	
 	

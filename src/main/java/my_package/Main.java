@@ -329,14 +329,8 @@ public class Main {
 						
 						
 						for(int i=0;i<Houses.size();i++) {
-							String l=String.format(DEC, i+1);
-							//System.out.println(l);
-							logger.info(Houses.get(i).getId()+
-								
-		
-									"    "+ Houses.get(i).getLocation()+ 
-									
-									"\r\n");
+
+							logger.info(Houses.get(i).getId()+"    "+ Houses.get(i).getLocation()+ "\r\n");
 						}
 						break;
 							
@@ -493,14 +487,7 @@ public class Main {
 						
 						
 					//case :
-						
-						
-						
-						
-						
-						
-				
-						
+	
 					case 5:
 					
 					    Scanner id3 = new Scanner(System.in);
@@ -547,8 +534,6 @@ public class Main {
 						       
 						      
 						    	logger.info("Number of Rooms: " + targetHouse2.getRoomsNum());
-						        
-						       
 						    	logger.info("Details: " + targetHouse2.getDetails());
 						    	logger.info("Price: " + targetHouse2.getPrice());
 						      
@@ -568,15 +553,14 @@ public class Main {
 					case 8:
 						System.exit(0);
 		            	break;
+					default:ownerActivities();
 
 
 		           
 		
 				}}
 	}
-    public static void tenantActivities() {
-		
-	}
+    
     
 	
 	 public  static void loginTenant()
@@ -673,7 +657,7 @@ public class Main {
 		  logger.info( "If u want to Book an house enter 1 \n\r");
 			Scanner scanner = new Scanner(System.in);
 			tenantOp=scanner.nextInt();
-			while(!(tenantOp==1))
+			while(tenantOp!=1)
 			{
 				logger.info( "input invalid  If u want to Book an house enter 1\n\r");
 				tenantOp=scanner.nextInt();

@@ -20,15 +20,15 @@ public class Main {
 
 	protected static  String namee="";
 	private static  String password="";
-	public static final  String INVALID="Invalid choice. Please try again.";
+	
 	   
 
     protected static int y;
-    public static final  String LOGOUT="You are logged out.";
-    public static final  String DEC="%d - ";
+    
+    
     
     protected static Logger logger;
-    public static final String NOTE="The Username doesn't exist, please enter your Username again";
+    
     static String tenantEmail; 
 	static String tenantPass;
 	static String tenantLocation;

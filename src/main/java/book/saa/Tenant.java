@@ -68,5 +68,13 @@ public String  show_member() {
 }
 
 
+public int checkbill(int n1,int m1)
+{
+	int bil=n1*m1;
+	return bil;
+	//System.out.printf("The  bill id is:%s | ",n1*m1);
+}
+
+
 
 }
